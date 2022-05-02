@@ -1,0 +1,83 @@
+{
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "rules": {
+    "no-alert": "error",
+    "no-caller": "error",
+    "no-empty-function": "error",
+    "no-invalid-this": "error",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-new-wrappers": "error",
+    "no-loop-func": "error",
+    "no-return-await": "error",
+    "no-throw-literal": "error",
+    "require-await": "warn",
+    "no-negated-condition": "error",
+    "no-unused-vars": "off",
+    "no-shadow": "off",
+    "max-depth": ["error", 4],
+
+    // Switch setting
+    "default-case-last": "error",
+    "default-case": "error",
+
+    // Allow use only console.error
+    "no-console": ["warn", { "allow": ["error"] }],
+    // Rule: https://eslint.org/docs/rules/curly
+    "curly": "error",
+
+    // Use only === and !== from equal
+    "eqeqeq": ["error", "always"],
+
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-unnecessary-type-constraint": "off",
+
+    // Allow use required in ts
+    "@typescript-eslint/no-var-requires": "off",
+
+    // Main part of time we use auto generate return type
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    /* 
+      Allow use type object and something like {}
+      This type should use only in Generic.
+    */
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+
+    // React
+    // React 17.0 allow not use inside component import React from 'react'.
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+
+    // In project we don't use PropType system.
+    "react/prop-types": "off",
+
+    "react/display-name": "off",
+
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "off"
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect",
+      "flowVersion": "0.53"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ]
+}

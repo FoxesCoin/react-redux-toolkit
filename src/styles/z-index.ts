@@ -1,0 +1,6 @@
+export const Z_INDEX = {
+  OVERLAY_LOADER: 6_000,
+  OVERLAY_MODAL: 5_000,
+
+  SELECTOR: 100,
+};
