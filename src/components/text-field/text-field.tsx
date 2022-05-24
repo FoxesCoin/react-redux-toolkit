@@ -52,7 +52,7 @@ export const TextField: RContainer<Props> = (props) => {
       contentEditable={false}
       value={value}
       disabled={isDisabled}
-      className={`${className} ${isError ? 'error' : ''}`}
+      className={`${className} ${isError ? 'field__error' : ''}`}
       placeholder={placeholder}
       styling={styling}
       onChange={handleChangeEvent(onChange)}

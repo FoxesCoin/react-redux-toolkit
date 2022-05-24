@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from 'styles/color';
 import { Z_INDEX } from 'styles/z-index';
 
-import { cssFullSizeFixed } from 'styles/theme';
+import { cssFullScreenFixed } from 'styles/theme';
 
 import { RWrapper } from 'types/react';
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Wrapper = styled.div<Props>`
-  ${cssFullSizeFixed}
+  ${cssFullScreenFixed}
   transition: 0.5s all;
   overflow: hidden;
   transform: translateX(${(props) => (props.isShow ? '0' : '100%')});

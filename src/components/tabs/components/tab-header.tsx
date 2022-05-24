@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { useTabContext } from '../tab.context';
+import { useTabApi, useTabState } from '../tab.context';
 
 import { handleClickEvent } from 'services/utils';
 
@@ -23,7 +23,8 @@ const Wrapper = styled.button<WrapperParams>`
 
 export const TabHeader: FC<Props> = (props) => {
   const { className, value, children } = props;
-  const { item, setItem } = useTabContext();
+  const item = useTabState();
+  const setItem = useTabApi();
 
   const isActive = item === value;
 
@@ -40,7 +41,7 @@ export const TabHeader: FC<Props> = (props) => {
 
   return (
     <Wrapper
-      className={`${className} ${isActive ? 'active' : ''}`}
+      className={`${className} ${isActive ? 'tab__active' : ''}`}
       isActive={isActive}
       onClick={handleClick}
     >

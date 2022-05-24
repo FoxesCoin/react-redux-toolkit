@@ -4,32 +4,40 @@ import { RWrapper } from 'types/react';
 
 import { Theme } from 'styles/theme';
 
-interface ContextParams<T = any> {
-  item: T;
+const State = createContext<string>('');
+const Api = createContext<SetState<string>>(() => {
+  return;
+});
 
-  setItem: SetState<T>;
-}
-
-const INIT_VALUE: ContextParams = {
-  item: '',
-  setItem: () => {
-    return;
-  },
+export const useTabState = () => {
+  const context = useContext(State);
+  if (!context) {
+    throw new Error('TabState.Context must be used with TabState.Provider!');
+  }
+  return context;
 };
 
-const Context = createContext(INIT_VALUE);
-export const useTabContext = () => useContext(Context);
+export const useTabApi = () => {
+  const context = useContext(Api);
+  if (!context) {
+    throw new Error('TabApi.Context must be used with TabApi.Provider!');
+  }
+  return context;
+};
 
 export const TabProvider: RWrapper = (props) => {
   const { className, children } = props;
 
   const [item, setItem] = useState<any>('');
 
-  const provider = useMemo(() => ({ item, setItem }), [item]);
+  const state = useMemo(() => item, [item]);
+  const api = useMemo(() => setItem, []);
 
   return (
-    <Context.Provider value={provider}>
-      <Theme.AllSpace className={className}>{children}</Theme.AllSpace>
-    </Context.Provider>
+    <Api.Provider value={api}>
+      <State.Provider value={state}>
+        <Theme.FullScreen className={className}>{children}</Theme.FullScreen>
+      </State.Provider>
+    </Api.Provider>
   );
 };

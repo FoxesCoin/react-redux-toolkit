@@ -8,7 +8,7 @@ import { handleClickEvent } from 'services/utils';
 export const AccordionHeader: RWrapper = (props) => {
   const { className, children } = props;
 
-  const { setIsOpen } = useAccordionApi();
+  const setIsOpen = useAccordionApi();
 
   const handleClick = handleClickEvent(() => {
     setIsOpen((current) => !current);

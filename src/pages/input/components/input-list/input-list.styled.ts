@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { FONT_SIZES } from 'styles/font-size';
 
 export const InputListStyled = {

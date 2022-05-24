@@ -1,5 +1,6 @@
-import { COLORS } from 'styles/color';
 import styled from 'styled-components';
+
+import { COLORS } from 'styles/color';
 
 export const HomeStyles = {
   Wrapper: styled.div`

@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from './pages/app';
 
+import { IS_PRODUCT } from 'constants/config';
+
 import { GlobalStyles } from 'styles/global';
 import 'styles/reset.css';
 
@@ -17,7 +19,7 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 const Root: RWrapper = ({ children }) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (IS_PRODUCT) {
     return <>{children}</>;
   }
 

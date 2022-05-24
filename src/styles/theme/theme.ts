@@ -19,23 +19,13 @@ export const Theme = {
     ${showCursor}
     ${cssText}
   `,
-  UpperText: styled.span<Typography>`
-    ${showCursor}
-    ${cssText}
-    text-transform: uppercase;
-  `,
   Title: styled.p<Typography>`
     ${showCursor}
     ${cssText}
     text-align: center;
     width: 100%;
   `,
-  FullScreenCenter: styled.div`
-    ${showCursor}
-    ${cssFlexCenter}
-    ${cssFullSize}
-    flex-direction: column;
-  `,
+
   FlexLine: styled.div`
     ${showCursor}
     display: flex;
@@ -74,22 +64,15 @@ export const Theme = {
     ${showCursor}
     ${cssFullSize}
   `,
-  GridColumn: styled.div<{ gap?: number }>`
+  FullScreenCenter: styled.div`
     ${showCursor}
-    display: grid;
-    gap: ${(props) => props.gap ?? 8}px;
-    grid-auto-rows: max-content;
-    justify-items: center;
-    align-items: center;
+    ${cssFlexCenter}
+    ${cssFullSize}
+    flex-direction: column;
   `,
   ToggleContent: styled.div`
     ${showCursor}
     overflow: hidden;
     transition: all 0.5s;
-  `,
-  AllSpace: styled.div`
-    ${showCursor}
-    width: 100%;
-    height: 100%;
   `,
 };

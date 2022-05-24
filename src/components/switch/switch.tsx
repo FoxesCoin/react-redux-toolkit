@@ -26,7 +26,7 @@ export const Switch: RContainer<Props> = (props) => {
       isChecked={isChecked}
       isDisabled={isDisabled}
     >
-      <Styled.Radio
+      <Styled.Switch
         type="checkbox"
         value={value}
         checked={isChecked}
