@@ -13,7 +13,7 @@ const WHITE = css`
     border-color: ${COLORS.spanishGray};
   }
 
-  &.error {
+  &.field__error {
     border-color: ${COLORS.lightCoral};
   }
 `;
@@ -29,7 +29,7 @@ const DARK = css`
     border-color: ${COLORS.spanishGray};
   }
 
-  &.error {
+  &.field__error {
     border-color: ${COLORS.lightCoral};
   }
 `;

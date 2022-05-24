@@ -6,7 +6,7 @@ import { useAccordionState } from '../accordion.context';
 export const AccordionContent: RWrapper = (props) => {
   const { className, children } = props;
 
-  const { isOpen } = useAccordionState();
+  const isOpen = useAccordionState();
 
   return (
     <Theme.ToggleContent

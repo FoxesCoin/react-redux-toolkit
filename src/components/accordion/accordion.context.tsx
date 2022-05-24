@@ -2,25 +2,10 @@ import { createContext, useContext, useMemo, useState } from 'react';
 
 import { RWrapper } from 'types/react';
 
-interface ContextState {
-  isOpen: boolean;
-}
-
-interface ContextApi {
-  setIsOpen: SetState<boolean>;
-}
-
-const INIT_VALUE_STATE: ContextState = {
-  isOpen: false,
-};
-const INIT_VALUE_API: ContextApi = {
-  setIsOpen: () => {
-    return;
-  },
-};
-
-const State = createContext(INIT_VALUE_STATE);
-const Api = createContext(INIT_VALUE_API);
+const State = createContext<boolean>(false);
+const Api = createContext<SetState<boolean>>(() => {
+  return;
+});
 
 export const useAccordionState = () => {
   const context = useContext(State);
@@ -47,8 +32,8 @@ export const AccordionContext: RWrapper = (props) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const state = useMemo<ContextState>(() => ({ isOpen }), [isOpen]);
-  const api = useMemo<ContextApi>(() => ({ setIsOpen }), []);
+  const state = useMemo(() => isOpen, [isOpen]);
+  const api = useMemo(() => setIsOpen, []);
 
   return (
     <State.Provider value={state}>

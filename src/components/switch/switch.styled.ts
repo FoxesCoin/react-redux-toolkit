@@ -66,7 +66,7 @@ export const SwitchStyled = {
     `
   ),
 
-  Radio: styled.input`
+  Switch: styled.input`
     display: none;
   `,
 };

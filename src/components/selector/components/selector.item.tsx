@@ -34,8 +34,9 @@ export const SelectorItem: RContainer<Props> = (props) => {
     if (!children) {
       return value;
     }
-    const isSelected = selectValue === value;
-    return typeof children === 'function' ? children(isSelected) : children;
+    return typeof children === 'function'
+      ? children(selectValue === value)
+      : children;
   };
 
   return (

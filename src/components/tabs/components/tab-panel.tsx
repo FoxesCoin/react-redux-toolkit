@@ -1,4 +1,4 @@
-import { useTabContext } from '../tab.context';
+import { useTabState } from '../tab.context';
 
 import { RWrapper } from 'types/react';
 
@@ -10,11 +10,11 @@ interface Props {
 
 export const TabPanel: RWrapper<Props> = (props) => {
   const { className, children, value } = props;
-  const { item } = useTabContext();
+  const item = useTabState();
 
   if (value !== item) {
     return null;
   }
 
-  return <Theme.AllSpace className={className}>{children}</Theme.AllSpace>;
+  return <Theme.FullScreen className={className}>{children}</Theme.FullScreen>;
 };
