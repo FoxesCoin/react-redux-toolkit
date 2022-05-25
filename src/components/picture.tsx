@@ -9,17 +9,31 @@ import { Theme } from 'styles/theme';
 const getIcon = (path: string) => require(`../assets/icons/${path}.svg`);
 
 const PICTURE = {
-  logo: getIcon('logo'),
-
   /* Utils */
   cancel: getIcon('utils/cancel'),
   arrowBottom: getIcon('utils/arrow-bottom'),
+
+  /* SideBar */
+  sideBarTabs: getIcon('side-bar/tabs'),
+  sideBarAccordion: getIcon('side-bar/accordion'),
+  sideBarModal: getIcon('side-bar/modal'),
+  sideBarNotification: getIcon('side-bar/notification'),
+  sideBarRadioGroup: getIcon('side-bar/radio-group'),
+  sideBarSelector: getIcon('side-bar/selector'),
+
+  /* Home */
+  homeTabs: getIcon('home/tabs'),
+  homeAccordion: getIcon('home/accordion'),
+  homeModal: getIcon('home/modal'),
+  homeNotification: getIcon('home/notification'),
+  homeRadioGroup: getIcon('home/radio-group'),
+  homeSelector: getIcon('home/selector'),
 };
 
-export type Picture = keyof typeof PICTURE;
+export type PictureName = keyof typeof PICTURE;
 
 interface Props {
-  picture?: keyof typeof PICTURE;
+  src?: keyof typeof PICTURE;
   alt?: string;
   size?: number;
   width?: number;
@@ -33,13 +47,13 @@ const Wrapper = styled(Theme.FlexCenter)`
 `;
 
 export const Picture: RElement<Props> = (props) => {
-  const { className, picture, height, size, width, onClick, alt = '' } = props;
+  const { className, src, height, size, width, onClick, alt = '' } = props;
 
-  if (!picture) {
+  if (!src) {
     return null;
   }
 
-  const img = PICTURE[picture].default;
+  const img = PICTURE[src];
   const imgHeight = height ?? size;
   const imgWidth = width ?? size;
 

@@ -3,6 +3,9 @@ export const ROUTES = {
   SELECTOR: '/selector',
   INPUT: '/input',
   BUTTON: '/button',
-  CHECKBOX: '/checkbox',
+  RADIO_GROUP: '/radio-group',
+  NOTIFICATION: '/notification',
+  MODAL: '/modal',
   ACCORDION: '/accordion',
+  TABS: '/tabs',
 };
