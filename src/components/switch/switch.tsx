@@ -22,7 +22,7 @@ export const Switch: RContainer<Props> = (props) => {
 
   return (
     <Styled.Wrapper
-      className={className}
+      className={`${className} switch`}
       isChecked={isChecked}
       isDisabled={isDisabled}
     >
@@ -34,7 +34,7 @@ export const Switch: RContainer<Props> = (props) => {
         onChange={handleChange}
       />
       <Styled.Item
-        className="switch"
+        className="switch__item"
         isDisabled={isDisabled}
         isChecked={isChecked}
       />

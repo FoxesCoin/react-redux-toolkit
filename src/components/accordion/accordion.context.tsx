@@ -7,9 +7,12 @@ const Api = createContext<SetState<boolean>>(() => {
   return;
 });
 
+State.displayName = 'AccordionState';
+Api.displayName = 'AccordionApi';
+
 export const useAccordionState = () => {
   const context = useContext(State);
-  if (!context) {
+  if (context === null) {
     throw new Error(
       'AccordionState.Context must be used with AccordionState.Provider!'
     );
@@ -19,7 +22,7 @@ export const useAccordionState = () => {
 
 export const useAccordionApi = () => {
   const context = useContext(Api);
-  if (!context) {
+  if (context === null) {
     throw new Error(
       'AccordionApi.Context must be used with AccordionApi.Provider!'
     );
@@ -38,7 +41,9 @@ export const AccordionContext: RWrapper = (props) => {
   return (
     <State.Provider value={state}>
       <Api.Provider value={api}>
-        <div className={className}>{children}</div>
+        <div className={`${isOpen ? 'accordion_open' : ''} ${className}`}>
+          {children}
+        </div>
       </Api.Provider>
     </State.Provider>
   );

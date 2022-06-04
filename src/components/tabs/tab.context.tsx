@@ -1,43 +1,48 @@
 import { createContext, useContext, useMemo, useState } from 'react';
-
+import { Theme } from 'styles/theme';
 import { RWrapper } from 'types/react';
 
-import { Theme } from 'styles/theme';
+export interface TabProviderProps {
+  defaultValue: any;
+}
 
-const State = createContext<string>('');
-const Api = createContext<SetState<string>>(() => {
+export const TabStateContext = createContext<string>('');
+export const TabApiContext = createContext<SetState<string>>(() => {
   return;
 });
+TabStateContext.displayName = 'TabState';
+TabApiContext.displayName = 'TabApi';
 
 export const useTabState = () => {
-  const context = useContext(State);
-  if (!context) {
+  const context = useContext(TabStateContext);
+
+  if (context === null) {
     throw new Error('TabState.Context must be used with TabState.Provider!');
   }
   return context;
 };
 
 export const useTabApi = () => {
-  const context = useContext(Api);
-  if (!context) {
+  const context = useContext(TabApiContext);
+  if (context === null) {
     throw new Error('TabApi.Context must be used with TabApi.Provider!');
   }
   return context;
 };
 
-export const TabProvider: RWrapper = (props) => {
-  const { className, children } = props;
+export const TabProvider: RWrapper<TabProviderProps> = (props) => {
+  const { className, children, defaultValue } = props;
 
-  const [item, setItem] = useState<any>('');
+  const [item, setItem] = useState<any>(defaultValue);
 
   const state = useMemo(() => item, [item]);
   const api = useMemo(() => setItem, []);
 
   return (
-    <Api.Provider value={api}>
-      <State.Provider value={state}>
+    <TabApiContext.Provider value={api}>
+      <TabStateContext.Provider value={state}>
         <Theme.FullScreen className={className}>{children}</Theme.FullScreen>
-      </State.Provider>
-    </Api.Provider>
+      </TabStateContext.Provider>
+    </TabApiContext.Provider>
   );
 };

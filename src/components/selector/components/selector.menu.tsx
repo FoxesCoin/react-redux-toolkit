@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useSelectorContext } from '../selector.context';
+import { useSelectorState } from '../selector.context';
 
 import { COLORS } from 'styles/color';
 import { Z_INDEX } from 'styles/z-index';
@@ -18,10 +18,10 @@ const Menu = styled.div<{ isOpen: boolean }>`
 
 export const SelectorMenu: RWrapper = (props) => {
   const { children, className } = props;
-  const { isOpen } = useSelectorContext();
+  const { isOpen } = useSelectorState();
 
   return (
-    <Menu isOpen={isOpen} className={className}>
+    <Menu isOpen={isOpen} className={`selector__menu ${className}`}>
       {children}
     </Menu>
   );

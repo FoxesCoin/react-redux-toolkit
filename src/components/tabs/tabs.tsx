@@ -1,12 +1,16 @@
-import { TabHeader, TabPanel } from './components';
-import { TabProvider } from './tab.context';
+import { TabProvider, TabProviderProps } from './tab.context';
 
 import { ReactWrapper } from 'types/react';
+import { TabHeader, TabPanel } from './components';
 
-export const Tabs = (props: ReactWrapper) => {
-  const { children, className } = props;
+export const Tabs = (props: ReactWrapper & TabProviderProps) => {
+  const { children, className, defaultValue } = props;
 
-  return <TabProvider className={className}>{children}</TabProvider>;
+  return (
+    <TabProvider defaultValue={defaultValue} className={className}>
+      {children}
+    </TabProvider>
+  );
 };
 
 Tabs.Header = TabHeader;

@@ -6,7 +6,8 @@ import { ReactWrapper } from 'types/react';
 interface Props extends ReactWrapper, SelectorParams {}
 
 export const Selector = (props: Props) => {
-  const { className, children, value, isDisabled, setValue } = props;
+  const { className, children, value, isDisabled, setValue, checkEqual } =
+    props;
 
   return (
     <SelectorContext
@@ -14,6 +15,7 @@ export const Selector = (props: Props) => {
       value={value}
       isDisabled={isDisabled}
       setValue={setValue}
+      checkEqual={checkEqual}
     >
       {children}
     </SelectorContext>

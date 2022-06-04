@@ -1,4 +1,4 @@
-import { useSelectorContext } from '../selector.context';
+import { useSelectorApi, useSelectorState } from '../selector.context';
 
 import { RContainer } from 'types/react';
 
@@ -10,7 +10,8 @@ interface Props {
 
 export const SelectorHeader: RContainer<Props> = (props) => {
   const { className, placeholder = '', children } = props;
-  const { value, isDisabled, setOpen } = useSelectorContext();
+  const { setOpen } = useSelectorApi();
+  const { value, isDisabled } = useSelectorState();
 
   const handleClick = () => {
     setOpen((current) => !current);
@@ -21,7 +22,7 @@ export const SelectorHeader: RContainer<Props> = (props) => {
       className={className}
       onClick={isDisabled ? undefined : handleClick}
     >
-      {!value && placeholder && <Theme.Text>{placeholder}</Theme.Text>}
+      {!value && <Theme.Text>{placeholder}</Theme.Text>}
       {children ?? value}
     </Theme.FlexLine>
   );

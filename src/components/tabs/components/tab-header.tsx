@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { useTabApi, useTabState } from '../tab.context';
@@ -17,16 +17,17 @@ interface WrapperParams {
   isActive: boolean;
 }
 
-const Wrapper = styled.button<WrapperParams>`
+const Wrapper = styled.div<WrapperParams>`
   transition: 0.15s all;
+  cursor: pointer;
 `;
 
 export const TabHeader: FC<Props> = (props) => {
   const { className, value, children } = props;
-  const item = useTabState();
+  const activeValue = useTabState();
   const setItem = useTabApi();
 
-  const isActive = item === value;
+  const isActive = useMemo(() => activeValue === value, [activeValue, value]);
 
   const handleClick = handleClickEvent(() => {
     setItem(value);
@@ -41,7 +42,7 @@ export const TabHeader: FC<Props> = (props) => {
 
   return (
     <Wrapper
-      className={`${className} ${isActive ? 'tab__active' : ''}`}
+      className={`${isActive ? 'tab_active' : ''} ${className}`}
       isActive={isActive}
       onClick={handleClick}
     >

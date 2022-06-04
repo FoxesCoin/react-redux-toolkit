@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import styled from 'styled-components';
 
-import { useSelectorContext } from '../selector.context';
+import { useSelectorApi, useSelectorState } from '../selector.context';
 
 import { COLORS } from 'styles/color';
 
@@ -23,7 +23,10 @@ const Item = styled(Theme.FlexCenter)`
 
 export const SelectorItem: RContainer<Props> = (props) => {
   const { value, className, children } = props;
-  const { setValue, setOpen, value: selectValue } = useSelectorContext();
+  const { setValue, setOpen, checkEqual } = useSelectorApi();
+  const { value: selectorValue } = useSelectorState();
+
+  const isChecked = useMemo(() => checkEqual(value), [selectorValue]);
 
   const handleClick = () => {
     setOpen(false);
@@ -34,13 +37,14 @@ export const SelectorItem: RContainer<Props> = (props) => {
     if (!children) {
       return value;
     }
-    return typeof children === 'function'
-      ? children(selectValue === value)
-      : children;
+    return typeof children === 'function' ? children(isChecked) : children;
   };
 
   return (
-    <Item className={className} onClick={handleClick}>
+    <Item
+      className={`${isChecked ? 'selector_active' : ''} ${className}`}
+      onClick={handleClick}
+    >
       {render()}
     </Item>
   );
