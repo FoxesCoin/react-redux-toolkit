@@ -7,6 +7,7 @@ import { COLORS } from 'styles/color';
 
 import { RElement } from 'types/react';
 import { Theme } from 'styles/theme';
+import { memo } from 'react';
 
 export interface SidebarLinkProps {
   to: string;
@@ -40,7 +41,7 @@ const Item = styled(NavLink)`
   }
 `;
 
-export const SidebarLink: RElement<SidebarLinkProps> = (props) => {
+export const SidebarLink: RElement<SidebarLinkProps> = memo((props) => {
   const { to, icon, text } = props;
 
   return (
@@ -49,4 +50,5 @@ export const SidebarLink: RElement<SidebarLinkProps> = (props) => {
       <Theme.Text>{text}</Theme.Text>
     </Item>
   );
-};
+});
+SidebarLink.displayName = 'SidebarLink';

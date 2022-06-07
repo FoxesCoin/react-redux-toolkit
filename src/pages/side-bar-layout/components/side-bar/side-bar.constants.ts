@@ -1,5 +1,5 @@
 import { ROUTES } from 'constants/router';
-import { SidebarLinkProps } from './components';
+import { SidebarLinkProps } from '../sidebar-link';
 
 export const SIDEBAR_LINKS: SidebarLinkProps[] = [
   { icon: 'sideBarTabs', to: ROUTES.TABS, text: 'Tabs' },
