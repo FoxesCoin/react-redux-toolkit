@@ -4,3 +4,5 @@ export * from './outside-call';
 export * from './show-state';
 export * from './request';
 export * from './async-effect';
+export * from './animate';
+export * from './event';

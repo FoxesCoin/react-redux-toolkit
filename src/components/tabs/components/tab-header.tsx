@@ -1,9 +1,8 @@
-import { FC, ReactNode, useMemo } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { useTabApi, useTabState } from '../tab.context';
-
-import { handleClickEvent } from 'services/utils';
+import { useClickEvent } from 'services/hooks';
 
 interface Props {
   value: string;
@@ -22,14 +21,14 @@ const Wrapper = styled.div<WrapperParams>`
   cursor: pointer;
 `;
 
-export const TabHeader: FC<Props> = (props) => {
+export const TabHeader: FC<Props> = memo((props) => {
   const { className, value, children } = props;
   const activeValue = useTabState();
   const setItem = useTabApi();
 
-  const isActive = useMemo(() => activeValue === value, [activeValue, value]);
+  const isActive = activeValue === value;
 
-  const handleClick = handleClickEvent(() => {
+  const handleClick = useClickEvent(() => {
     setItem(value);
   });
 
@@ -49,4 +48,5 @@ export const TabHeader: FC<Props> = (props) => {
       {render()}
     </Wrapper>
   );
-};
+});
+TabHeader.displayName = 'TabHeader';

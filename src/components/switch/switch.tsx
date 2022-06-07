@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { useChangeEvent } from 'services/hooks';
 
 import { SwitchStyled as Styled } from './switch.styled';
 
@@ -16,9 +16,7 @@ interface Props {
 export const Switch: RContainer<Props> = (props) => {
   const { className, isChecked, isDisabled, value, children, onCheck } = props;
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    onCheck(event.target.value);
-  };
+  const handleChange = useChangeEvent(onCheck);
 
   return (
     <Styled.Wrapper

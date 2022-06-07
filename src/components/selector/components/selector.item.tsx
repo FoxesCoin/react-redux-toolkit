@@ -1,13 +1,14 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { useSelectorApi, useSelectorState } from '../selector.context';
+import { useSelectorApi } from '../selector.context';
 
 import { COLORS } from 'styles/color';
 
 import { RContainer } from 'types/react';
 
 import { Theme } from 'styles/theme';
+import { useClickEvent } from 'services/hooks';
 
 interface Props {
   value: any;
@@ -24,27 +25,23 @@ const Item = styled(Theme.FlexCenter)`
 export const SelectorItem: RContainer<Props> = (props) => {
   const { value, className, children } = props;
   const { setValue, setOpen, checkEqual } = useSelectorApi();
-  const { value: selectorValue } = useSelectorState();
 
-  const isChecked = useMemo(() => checkEqual(value), [selectorValue]);
-
-  const handleClick = () => {
+  const handleClick = useClickEvent(() => {
     setOpen(false);
     setValue(value);
-  };
+  });
 
   const render = (): ReactNode => {
     if (!children) {
       return value;
     }
-    return typeof children === 'function' ? children(isChecked) : children;
+    return typeof children === 'function'
+      ? children(checkEqual(value))
+      : children;
   };
 
   return (
-    <Item
-      className={`${isChecked ? 'selector_active' : ''} ${className}`}
-      onClick={handleClick}
-    >
+    <Item className={className} onClick={handleClick}>
       {render()}
     </Item>
   );

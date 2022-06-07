@@ -3,17 +3,17 @@ import { useCallback, useState } from 'react';
 export function useShowState(initState = false) {
   const [isShow, setShow] = useState(initState);
 
-  const onShow = () => {
+  const onShow = useCallback(() => {
     setShow(true);
-  };
+  }, []);
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setShow(false);
-  };
+  }, []);
 
-  const onToggle = () => {
-    setShow(!isShow);
-  };
+  const onToggle = useCallback(() => {
+    setShow((current) => !current);
+  }, []);
 
   return {
     isShow,
@@ -26,7 +26,7 @@ export function useShowState(initState = false) {
 export function useToggleState(initState = false) {
   const [isShow, setShow] = useState(initState);
 
-  const onToggle = useCallback(() => setShow((state) => !state), []);
+  const onToggle = useCallback(() => setShow((current) => !current), []);
 
   return [isShow, onToggle] as const;
 }

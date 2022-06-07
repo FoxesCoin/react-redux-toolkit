@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { handleChangeEvent } from 'services/utils';
+import { useChangeEvent } from 'services/hooks';
 
 import {
   TextFieldTheme,
@@ -32,9 +32,11 @@ export const TextArea: RElement<TextAreaProps> = (props) => {
   const { styling, value, className, isDisabled, placeholder, onChange } =
     props;
 
+  const handleChange = useChangeEvent(onChange);
+
   return (
     <Wrapper
-      onChange={handleChangeEvent(onChange)}
+      onChange={handleChange}
       styling={styling}
       value={value}
       className={className}

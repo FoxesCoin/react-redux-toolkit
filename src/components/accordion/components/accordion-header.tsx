@@ -1,16 +1,16 @@
 import { useAccordionApi } from '../accordion.context';
+import { useClickEvent } from 'services/hooks';
 
 import { RWrapper } from 'types/react';
 
 import { Theme } from 'styles/theme';
-import { handleClickEvent } from 'services/utils';
 
 export const AccordionHeader: RWrapper = (props) => {
   const { className, children } = props;
 
   const setIsOpen = useAccordionApi();
 
-  const handleClick = handleClickEvent(() => {
+  const handleClick = useClickEvent(() => {
     setIsOpen((current) => !current);
   });
 

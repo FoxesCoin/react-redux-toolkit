@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { handleClickEvent } from 'services/utils';
+import { useClickEvent } from 'services/hooks';
 
 import { BUTTON_THEME, ButtonTheme } from './button.constants';
 import { COLORS } from 'styles/color';
@@ -28,12 +28,14 @@ const Wrapper = styled.button<{ styling?: ButtonTheme }>`
 export const Button: RWrapper<Props> = (props) => {
   const { children, className, isDisabled, styling, onClick } = props;
 
+  const handleClick = useClickEvent(onClick);
+
   return (
     <Wrapper
       styling={styling}
       className={className}
       disabled={isDisabled}
-      onClick={handleClickEvent(onClick)}
+      onClick={handleClick}
     >
       {children}
     </Wrapper>

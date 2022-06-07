@@ -1,6 +1,6 @@
 export const getFileUrl = (file: File) => URL.createObjectURL(file);
 export const checkLimitSize = (file: File, mbLimit: number) =>
-  file.size / 1024 / 1024 >= mbLimit;
+  file.size / (1024 * 1024) >= mbLimit;
 
 export function formatUploadFile(filename: string, file: File) {
   const data = new FormData();

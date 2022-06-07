@@ -1,4 +1,5 @@
-import { ChangeEventHandler } from 'react';
+import { useChangeEvent } from 'services/hooks';
+
 import { RContainer } from 'types/react';
 
 import { RadioStyles as Styled } from './radio.styles';
@@ -15,9 +16,7 @@ interface Props {
 export const Radio: RContainer<Props> = (props) => {
   const { isChecked, onCheck, value, children, className, isDisabled } = props;
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    onCheck(event.target.value);
-  };
+  const handleChange = useChangeEvent(onCheck);
 
   return (
     <Styled.Wrapper

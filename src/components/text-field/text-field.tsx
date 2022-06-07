@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { handleChangeEvent } from 'services/utils';
+import { useChangeEvent } from 'services/hooks';
 
 import { COLORS } from 'styles/color';
 import { TEXT_FIELD_THEME, TextFieldTheme } from './text-field.constants';
@@ -46,6 +46,8 @@ export const TextField: RContainer<Props> = (props) => {
     onChange,
   } = props;
 
+  const handleChange = useChangeEvent(onChange);
+
   return (
     <Field
       type="text"
@@ -55,7 +57,7 @@ export const TextField: RContainer<Props> = (props) => {
       className={`${className} ${isError ? 'field__error' : ''}`}
       placeholder={placeholder}
       styling={styling}
-      onChange={handleChangeEvent(onChange)}
+      onChange={handleChange}
     >
       {children}
     </Field>
