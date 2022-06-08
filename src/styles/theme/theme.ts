@@ -25,7 +25,6 @@ export const Theme = {
     text-align: center;
     width: 100%;
   `,
-
   FlexLine: styled.div`
     ${showCursor}
     display: flex;
@@ -69,10 +68,5 @@ export const Theme = {
     ${cssFlexCenter}
     ${cssFullSize}
     flex-direction: column;
-  `,
-  ToggleContent: styled.div`
-    ${showCursor}
-    overflow: hidden;
-    transition: all 0.5s;
   `,
 };

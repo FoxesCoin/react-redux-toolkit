@@ -17,7 +17,7 @@ const ItemList = styled.div`
   column-gap: ${COLUMN_GAP};
   row-gap: 4rem;
   grid-auto-rows: min-content;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(${ITEM_WIDTH}, 1fr));
 `;
 
 export const Home: RPage = () => (

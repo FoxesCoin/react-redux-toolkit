@@ -1,7 +1,11 @@
-import { Picture, PictureName } from 'components/picture';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { memo } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Picture, PictureName } from 'components/picture';
+
 import { Theme } from 'styles/theme';
+
 import { RElement } from 'types/react';
 
 export interface HomeItemProps {
@@ -17,7 +21,7 @@ const Wrapper = styled(Link)`
   justify-content: center;
 `;
 
-export const HomeItem: RElement<HomeItemProps> = (props) => {
+export const HomeItem: RElement<HomeItemProps> = memo((props) => {
   const { icon, route, title, className } = props;
 
   return (
@@ -26,4 +30,4 @@ export const HomeItem: RElement<HomeItemProps> = (props) => {
       <Theme.Title>{title}</Theme.Title>
     </Wrapper>
   );
-};
+});

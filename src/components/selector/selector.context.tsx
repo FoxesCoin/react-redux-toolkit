@@ -1,9 +1,10 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 import { useOutsideCall } from 'services/hooks';
 
 import { RWrapper } from 'types/react';
+import { generateContext, useContextHandler } from 'services/hooks/context';
 
 interface SelectorApiParams {
   setValue: (value: any) => void;
@@ -26,48 +27,11 @@ interface SelectorState extends SelectorStateParams {
 
 export type SelectorParams = SelectorApiParams & SelectorStateParams;
 
-const API: SelectorApi = {
-  setOpen: () => {
-    return;
-  },
-  setValue: () => {
-    return;
-  },
-  checkEqual: () => {
-    return false;
-  },
-};
+const Api = generateContext<SelectorApi>('SelectorApiContext');
+const State = generateContext<SelectorState>('SelectorStateContext');
 
-const STATE: SelectorState = {
-  isOpen: false,
-  value: '',
-  isDisabled: false,
-};
-
-const Api = createContext<SelectorApi>(API);
-const State = createContext<SelectorState>(STATE);
-State.displayName = 'SelectorState';
-Api.displayName = 'SelectorApi';
-
-export const useSelectorState = () => {
-  const context = useContext(State);
-  if (context === null) {
-    throw new Error(
-      'SelectorState.Context must be used with SelectorState.Provider!'
-    );
-  }
-  return context;
-};
-
-export const useSelectorApi = () => {
-  const context = useContext(Api);
-  if (context === null) {
-    throw new Error(
-      'SelectorApi.Context must be used with SelectorApi.Provider!'
-    );
-  }
-  return context;
-};
+export const useSelectorState = () => useContextHandler(State, 'SelectorState');
+export const useSelectorApi = () => useContextHandler(Api, 'SelectorApi');
 
 const Wrapper = styled.div`
   position: relative;

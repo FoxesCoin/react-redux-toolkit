@@ -1,37 +1,19 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
+import { generateContext, useContextHandler } from 'services/hooks/context';
 
-import { RWrapper } from 'types/react';
+const State = generateContext<boolean>('AccordionStateContext');
+const Api = generateContext<SetState<boolean>>('AccordionApiContext');
 
-const State = createContext<boolean>(false);
-const Api = createContext<SetState<boolean>>(() => {
-  return;
-});
+export const useAccordionState = () =>
+  useContextHandler(State, 'AccordionState');
+export const useAccordionApi = () => useContextHandler(Api, 'AccordionApi');
 
-State.displayName = 'AccordionState';
-Api.displayName = 'AccordionApi';
+interface Props {
+  children: ReactNode;
+}
 
-export const useAccordionState = () => {
-  const context = useContext(State);
-  if (context === null) {
-    throw new Error(
-      'AccordionState.Context must be used with AccordionState.Provider!'
-    );
-  }
-  return context;
-};
-
-export const useAccordionApi = () => {
-  const context = useContext(Api);
-  if (context === null) {
-    throw new Error(
-      'AccordionApi.Context must be used with AccordionApi.Provider!'
-    );
-  }
-  return context;
-};
-
-export const AccordionContext: RWrapper = (props) => {
-  const { children, className } = props;
+export const AccordionContext = (props: Props) => {
+  const { children } = props;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,12 +21,8 @@ export const AccordionContext: RWrapper = (props) => {
   const api = useMemo(() => setIsOpen, []);
 
   return (
-    <State.Provider value={state}>
-      <Api.Provider value={api}>
-        <div className={`${isOpen ? 'accordion_open' : ''} ${className}`}>
-          {children}
-        </div>
-      </Api.Provider>
-    </State.Provider>
+    <Api.Provider value={api}>
+      <State.Provider value={state}>{children}</State.Provider>
+    </Api.Provider>
   );
 };

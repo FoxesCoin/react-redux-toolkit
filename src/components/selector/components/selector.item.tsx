@@ -1,13 +1,9 @@
 import { ReactNode } from 'react';
-import styled from 'styled-components';
 
 import { useSelectorApi } from '../selector.context';
 
-import { COLORS } from 'styles/color';
-
 import { RContainer } from 'types/react';
 
-import { Theme } from 'styles/theme';
 import { useClickEvent } from 'services/hooks';
 
 interface Props {
@@ -18,13 +14,14 @@ interface Props {
   children?: ReactNode | ((isSelected: boolean) => ReactNode);
 }
 
-const Item = styled(Theme.FlexCenter)`
-  color: ${COLORS.spanishGray};
-`;
-
 export const SelectorItem: RContainer<Props> = (props) => {
   const { value, className, children } = props;
   const { setValue, setOpen, checkEqual } = useSelectorApi();
+
+  const isEqual = checkEqual(value);
+  const componentClass =
+    `${isEqual ? 'selector__item_active' : ''} ${className ?? ''}`.trim() ||
+    undefined;
 
   const handleClick = useClickEvent(() => {
     setOpen(false);
@@ -35,14 +32,12 @@ export const SelectorItem: RContainer<Props> = (props) => {
     if (!children) {
       return value;
     }
-    return typeof children === 'function'
-      ? children(checkEqual(value))
-      : children;
+    return typeof children === 'function' ? children(isEqual) : children;
   };
 
   return (
-    <Item className={className} onClick={handleClick}>
+    <div className={componentClass} onClick={handleClick}>
       {render()}
-    </Item>
+    </div>
   );
 };
