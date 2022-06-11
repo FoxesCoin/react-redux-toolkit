@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { useAccordionState } from '../accordion.context';
-import { useAutoHeightAnimation } from 'services/hooks';
+import { useAutoHeightAnimation } from 'hooks/animate';
 
 import { RWrapper } from 'types/react';
 

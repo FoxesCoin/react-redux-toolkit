@@ -1,13 +1,21 @@
+import styled from 'styled-components';
+
 import { useSelectorApi, useSelectorState } from '../selector.context';
+import { useClickEvent } from 'hooks/event';
 
 import { RContainer } from 'types/react';
 
 import { Theme } from 'styles/theme';
-import { useClickEvent } from 'services/hooks';
 
 interface Props {
   placeholder?: string;
 }
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: block;
+  cursor: pointer;
+`;
 
 export const SelectorHeader: RContainer<Props> = (props) => {
   const { className, placeholder = '', children } = props;
@@ -19,12 +27,12 @@ export const SelectorHeader: RContainer<Props> = (props) => {
   });
 
   return (
-    <Theme.FlexLine
-      className={className}
+    <Wrapper
+      className={`${className ?? ''} selector__header`.trim()}
       onClick={isDisabled ? undefined : handleClick}
     >
       {!value && <Theme.Text>{placeholder}</Theme.Text>}
       {children ?? value}
-    </Theme.FlexLine>
+    </Wrapper>
   );
 };

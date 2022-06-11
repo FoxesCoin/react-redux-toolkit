@@ -1,6 +1,6 @@
 import { SidebarLink } from '../sidebar-link';
 
-import { useToggleState } from 'services/hooks';
+import { useToggleState } from 'hooks/show-state';
 
 import { SIDEBAR_LINKS } from './side-bar.constants';
 

@@ -7,8 +7,10 @@ export function useAsyncEffect(
   dependency: any[] = []
 ) {
   const { isLoading, isError, sendRequest } = useRequest();
+
   useEffect(() => {
     sendRequest(callback);
   }, dependency);
+
   return { isLoading, isError };
 }

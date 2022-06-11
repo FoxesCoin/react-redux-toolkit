@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Switch } from 'components/switch';
 import { Radio } from 'components/radio';
+import { Switch } from 'components/switch';
 
-import { toggleItemSimpleArray } from 'services/utils';
+import { toggleItemSimpleArray } from 'services/array';
 
 import { RPage } from 'types/react';
 

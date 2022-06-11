@@ -2,7 +2,7 @@ import { FC, memo, ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { useTabApi, useTabState } from '../tab.context';
-import { useClickEvent } from 'services/hooks';
+import { useClickEvent } from 'hooks/event';
 
 interface Props {
   value: string;

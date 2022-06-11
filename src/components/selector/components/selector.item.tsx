@@ -1,10 +1,10 @@
+import styled from 'styled-components';
 import { ReactNode } from 'react';
 
 import { useSelectorApi } from '../selector.context';
+import { useClickEvent } from 'hooks/event';
 
 import { RContainer } from 'types/react';
-
-import { useClickEvent } from 'services/hooks';
 
 interface Props {
   value: any;
@@ -14,14 +14,20 @@ interface Props {
   children?: ReactNode | ((isSelected: boolean) => ReactNode);
 }
 
+const Wrapper = styled.li`
+  width: 100%;
+  display: block;
+  cursor: pointer;
+`;
+
 export const SelectorItem: RContainer<Props> = (props) => {
   const { value, className, children } = props;
   const { setValue, setOpen, checkEqual } = useSelectorApi();
 
   const isEqual = checkEqual(value);
-  const componentClass =
-    `${isEqual ? 'selector__item_active' : ''} ${className ?? ''}`.trim() ||
-    undefined;
+  const componentClass = `${className ?? ''} selector__item ${
+    isEqual ? 'selector__item_active' : ''
+  }`.trim();
 
   const handleClick = useClickEvent(() => {
     setOpen(false);
@@ -36,8 +42,8 @@ export const SelectorItem: RContainer<Props> = (props) => {
   };
 
   return (
-    <div className={componentClass} onClick={handleClick}>
+    <Wrapper className={componentClass} onClick={handleClick}>
       {render()}
-    </div>
+    </Wrapper>
   );
 };

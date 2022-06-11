@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useClickEvent } from 'services/hooks';
+import { useClickEvent } from 'hooks/event';
 
 import { BUTTON_THEME, ButtonTheme } from './button.constants';
 import { COLORS } from 'styles/color';

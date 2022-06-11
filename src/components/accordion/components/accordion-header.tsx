@@ -1,5 +1,5 @@
 import { useAccordionApi } from '../accordion.context';
-import { useClickEvent } from 'services/hooks';
+import { useClickEvent } from 'hooks/event';
 
 import { RWrapper } from 'types/react';
 

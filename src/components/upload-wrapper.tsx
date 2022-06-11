@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import { useEvent } from 'services/hooks';
+import { useEvent } from 'hooks/event';
 
 import { RWrapper } from 'types/react';
 

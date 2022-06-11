@@ -1,9 +1,9 @@
-import './wdyr';
+import 'services/why-did-you-rerender';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { App } from './pages/app';
+import { App } from 'pages/app';
 
 import { IS_PRODUCT } from 'constants/config';
 

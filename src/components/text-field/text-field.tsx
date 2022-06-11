@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { useChangeEvent } from 'services/hooks';
+import { useChangeEvent } from 'hooks/event';
 
 import { COLORS } from 'styles/color';
 import { TEXT_FIELD_THEME, TextFieldTheme } from './text-field.constants';

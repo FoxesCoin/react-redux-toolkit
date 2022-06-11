@@ -18,9 +18,9 @@ export const useEvent = <T extends (...args: any[]) => void>(handler: T) => {
 
   return useCallback((...args: Parameters<T>) => {
     // In a real implementation, this would throw if called during render
-    const fn = handlerRef.current;
-    if (fn) {
-      fn(...args);
+    const func = handlerRef.current;
+    if (func) {
+      func(...args);
     }
   }, []);
 };

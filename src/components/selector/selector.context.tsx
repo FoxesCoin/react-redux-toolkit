@@ -1,10 +1,13 @@
-import { useMemo, useState } from 'react';
 import styled from 'styled-components';
+import { useMemo, useState } from 'react';
 
-import { useOutsideCall } from 'services/hooks';
+import { useContextHandler } from 'hooks/context';
+import { useOutsideCall } from 'hooks/outside-call';
+import { generateContext } from 'services/react';
+
+import { SelectorTheme, SELECTOR_THEME } from './selector.constants';
 
 import { RWrapper } from 'types/react';
-import { generateContext, useContextHandler } from 'services/hooks/context';
 
 interface SelectorApiParams {
   setValue: (value: any) => void;
@@ -25,7 +28,9 @@ interface SelectorState extends SelectorStateParams {
   isOpen: boolean;
 }
 
-export type SelectorParams = SelectorApiParams & SelectorStateParams;
+export interface SelectorParams extends SelectorApiParams, SelectorStateParams {
+  styling: SelectorTheme;
+}
 
 const Api = generateContext<SelectorApi>('SelectorApiContext');
 const State = generateContext<SelectorState>('SelectorStateContext');
@@ -33,13 +38,22 @@ const State = generateContext<SelectorState>('SelectorStateContext');
 export const useSelectorState = () => useContextHandler(State, 'SelectorState');
 export const useSelectorApi = () => useContextHandler(Api, 'SelectorApi');
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ styling: SelectorTheme }>`
   position: relative;
+
+  ${(props) => SELECTOR_THEME[props.styling]}
 `;
 
 export const SelectorContext: RWrapper<SelectorParams> = (parameters) => {
-  const { children, className, isDisabled, value, setValue, checkEqual } =
-    parameters;
+  const {
+    children,
+    className,
+    isDisabled,
+    value,
+    styling,
+    setValue,
+    checkEqual,
+  } = parameters;
   const [isOpen, setOpen] = useState(false);
 
   const ref = useOutsideCall<HTMLDivElement>(() => {
@@ -55,13 +69,12 @@ export const SelectorContext: RWrapper<SelectorParams> = (parameters) => {
     [setValue, checkEqual]
   );
 
+  const componentClass = `${className ?? ''} selector`.trim() || undefined;
+
   return (
     <Api.Provider value={api}>
       <State.Provider value={state}>
-        <Wrapper
-          ref={ref}
-          className={`selector ${isOpen ? 'selector_open' : ''} ${className}`}
-        >
+        <Wrapper ref={ref} styling={styling} className={componentClass}>
           {children}
         </Wrapper>
       </State.Provider>

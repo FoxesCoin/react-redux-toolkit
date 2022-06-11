@@ -1,5 +1,7 @@
 import { ReactNode, useMemo, useState } from 'react';
-import { generateContext, useContextHandler } from 'services/hooks/context';
+
+import { useContextHandler } from 'hooks/context';
+import { generateContext } from 'services/react';
 
 const State = generateContext<boolean>('AccordionStateContext');
 const Api = generateContext<SetState<boolean>>('AccordionApiContext');

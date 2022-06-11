@@ -1,4 +1,4 @@
-import { useChangeEvent } from 'services/hooks';
+import { useChangeEvent } from 'hooks/event';
 
 import { SwitchStyled as Styled } from './switch.styled';
 
