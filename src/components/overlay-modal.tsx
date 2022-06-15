@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from 'styles/color';
 import { Z_INDEX } from 'styles/z-index';
 
-import { cssFullScreenFixed } from 'styles/theme';
+import { cssFlexCenter, cssFullScreenFixed } from 'styles/theme';
 
 import { RWrapper } from 'types/react';
 
@@ -13,10 +13,12 @@ interface Props {
 
 const Wrapper = styled.div<Props>`
   ${cssFullScreenFixed}
+  ${cssFlexCenter}
   transition: 0.5s all;
   overflow: hidden;
   transform: translateX(${(props) => (props.isShow ? '0' : '100%')});
   z-index: ${Z_INDEX.OVERLAY_MODAL};
+  background-color: ${COLORS.onyxOpacity};
 `;
 
 const Content = styled.div`

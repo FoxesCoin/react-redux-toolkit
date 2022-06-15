@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { Picture, PictureName } from 'components/picture';
 
 import { COLORS } from 'styles/color';
 
 import { RElement } from 'types/react';
+
 import { Theme } from 'styles/theme';
-import { memo } from 'react';
 
 export interface SidebarLinkProps {
   to: string;
@@ -37,7 +38,7 @@ const Item = styled(NavLink)`
   }
 
   &:hover {
-    background-color: ${COLORS.opacityOnyx};
+    background-color: ${COLORS.onyxOpacity};
   }
 `;
 

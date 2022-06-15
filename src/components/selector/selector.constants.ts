@@ -1,8 +1,6 @@
 import { css } from 'styled-components';
 import { COLORS } from 'styles/color';
 
-const BORDER_RADIUS = '0.25rem';
-
 const DARK_ORANGE = css`
   & .selector {
     color: ${COLORS.white};
@@ -10,8 +8,8 @@ const DARK_ORANGE = css`
     &__header,
     &__menu {
       max-width: 20rem;
-      border: 1.5px solid ${COLORS.white};
-      border-radius: ${BORDER_RADIUS};
+      border: 1px solid ${COLORS.white};
+      border-radius: 0.25rem;
       background-color: ${COLORS.backgroundBlue};
     }
 
@@ -23,10 +21,10 @@ const DARK_ORANGE = css`
       padding: 0.125rem 2rem;
 
       &:first-child {
-        border-radius: ${BORDER_RADIUS} ${BORDER_RADIUS} 0 0;
+        border-radius: 0.2rem 0.2rem 0 0;
       }
       &:last-child {
-        border-radius: 0 0 ${BORDER_RADIUS} ${BORDER_RADIUS};
+        border-radius: 0 0 0.2rem 0.2rem;
       }
 
       &:hover:not(.selector__item_active) {

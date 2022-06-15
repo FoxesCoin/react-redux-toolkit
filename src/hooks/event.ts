@@ -1,14 +1,14 @@
 import {
-  useRef,
-  useLayoutEffect,
-  useCallback,
-  MouseEvent,
   ChangeEvent,
+  MouseEvent,
+  useCallback,
+  useLayoutEffect,
+  useRef,
 } from 'react';
 
 // useEvent pull request https://github.com/reactjs/rfcs/blob/useevent/text/0000-useevent.md
 
-export const useEvent = <T extends (...args: any[]) => void>(handler: T) => {
+export const useEvent = <T extends (...args: any[]) => any>(handler: T) => {
   const handlerRef = useRef<T>(null);
 
   // In a real implementation, this would run before layout effects
@@ -25,11 +25,9 @@ export const useEvent = <T extends (...args: any[]) => void>(handler: T) => {
   }, []);
 };
 
-export const useClickEvent = (callback?: () => void) =>
+export const useClickEvent = (onClick: () => void) =>
   useEvent((event: MouseEvent<any>) => {
-    if (callback) {
-      callback();
-    }
+    onClick();
 
     event.preventDefault();
     event.stopPropagation();

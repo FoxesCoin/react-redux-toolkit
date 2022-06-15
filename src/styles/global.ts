@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 import { COLORS } from './color';
-import { FONT_SIZES } from './font-size';
 import { FONTS, importFont } from './font';
+import { FONT_SIZES } from './font-size';
 
 export const GlobalStyles = createGlobalStyle`
 #root {

@@ -25,7 +25,7 @@ const DARK = css`
 
   &:disabled {
     color: ${COLORS.spanishGray};
-    background-color: ${COLORS.opacityOnyx};
+    background-color: ${COLORS.onyxOpacity};
     border-color: ${COLORS.spanishGray};
   }
 

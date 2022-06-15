@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { COLORS, Color } from 'styles/color';
+import { Color, COLORS } from 'styles/color';
 import { FontSize, FONT_SIZES } from 'styles/font-size';
 
 interface Flex {

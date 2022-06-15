@@ -1,5 +1,5 @@
 import { SelectorHeader, SelectorItem, SelectorMenu } from './components';
-import { SelectorParams, SelectorContext } from './selector.context';
+import { SelectorContext, SelectorParams } from './selector.context';
 
 import { ReactWrapper } from 'types/react';
 

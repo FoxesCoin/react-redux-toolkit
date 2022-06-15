@@ -1,8 +1,8 @@
 import { useChangeEvent } from 'hooks/event';
 
-import { SwitchStyled as Styled } from './switch.styled';
-
 import { RContainer } from 'types/react';
+
+import { SwitchStyled as Styled } from './switch.styled';
 
 interface Props {
   isChecked: boolean;

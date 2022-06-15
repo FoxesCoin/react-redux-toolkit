@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { RPage } from 'types/react';
+
 import { HomeItem } from './home-item';
+
 import { HOME_MENU } from './home.constants';
+
+import { RPage } from 'types/react';
 
 const Wrapper = styled.div`
   display: flex;

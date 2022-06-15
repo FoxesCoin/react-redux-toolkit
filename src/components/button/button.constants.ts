@@ -4,20 +4,20 @@ import { COLORS } from 'styles/color';
 
 const BLACK = css`
   color: ${COLORS.white};
-  background: ${COLORS.black};
+  background-color: ${COLORS.black};
   width: 100%;
   padding: 0.75rem 1.5rem;
 `;
 
-const DEFAULT = css`
+const WHITE = css`
   color: ${COLORS.black};
-  background: ${COLORS.white};
+  background-color: ${COLORS.white};
   width: 100%;
   padding: 0.75rem 1.5rem;
 `;
 
 export const BUTTON_THEME = <const>{
-  default: DEFAULT,
+  white: WHITE,
   black: BLACK,
 };
 

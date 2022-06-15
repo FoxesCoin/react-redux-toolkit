@@ -23,6 +23,12 @@ const PICTURE = {
   homeNotification: getIcon('home/notification'),
   homeRadioGroup: getIcon('home/radio-group'),
   homeSelector: getIcon('home/selector'),
+
+  /* Notification */
+  warningNotification: getIcon('notification/warning'),
+  successNotification: getIcon('notification/success'),
+  informationNotification: getIcon('notification/information'),
+  errorNotification: getIcon('notification/error'),
 };
 
 export type PictureName = keyof typeof PICTURE;

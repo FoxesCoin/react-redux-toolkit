@@ -1,6 +1,8 @@
 import { Tabs } from 'components/tabs';
-import { Theme } from 'styles/theme';
+
 import { RPage } from 'types/react';
+
+import { Theme } from 'styles/theme';
 
 const TAB_ITEMS = ['Test', 'Test_2', 'Test_3'];
 

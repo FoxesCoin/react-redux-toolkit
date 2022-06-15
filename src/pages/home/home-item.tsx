@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { Picture, PictureName } from 'components/picture';
 

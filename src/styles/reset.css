@@ -457,14 +457,6 @@ textarea {
   padding: 0.2em 0;
 }
 
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: max-content;
-  background-color: transparent;
-}
-
 input,
 button,
 label {
