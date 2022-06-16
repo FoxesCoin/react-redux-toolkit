@@ -4,6 +4,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import { App } from 'pages/app';
+import { NotificationList } from 'pages/notification-list';
+import { NotificationContext } from 'pages/notification-list/notification-list.context';
 
 import { IS_PRODUCT } from 'constants/config';
 
@@ -30,7 +32,10 @@ const Root: RWrapper = ({ children }) => {
 
 root.render(
   <Root>
-    <GlobalStyles />
-    <App />
+    <NotificationContext>
+      <GlobalStyles />
+      <App />
+      <NotificationList />
+    </NotificationContext>
   </Root>
 );

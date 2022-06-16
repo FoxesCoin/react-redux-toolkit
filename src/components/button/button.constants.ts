@@ -16,9 +16,27 @@ const WHITE = css`
   padding: 0.75rem 1.5rem;
 `;
 
+const GREEN = css`
+  color: ${COLORS.white};
+  font-weight: bold;
+  background-color: ${COLORS.darkGreen};
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+`;
+
+const RED = css`
+  color: ${COLORS.white};
+  font-weight: bold;
+  background-color: ${COLORS.red};
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+`;
+
 export const BUTTON_THEME = <const>{
   white: WHITE,
   black: BLACK,
+  green: GREEN,
+  red: RED,
 };
 
 export type ButtonTheme = keyof typeof BUTTON_THEME;
