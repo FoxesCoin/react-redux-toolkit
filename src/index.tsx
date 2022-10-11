@@ -3,9 +3,9 @@ import 'services/why-did-you-rerender';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { NotificationList } from 'components/notification-list';
+import { NotificationContext } from 'components/notification-list/notification-list.context';
 import { App } from 'pages/app';
-import { NotificationList } from 'pages/notification-list';
-import { NotificationContext } from 'pages/notification-list/notification-list.context';
 
 import { IS_PRODUCT } from 'constants/config';
 

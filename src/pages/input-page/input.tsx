@@ -9,10 +9,12 @@ const Wrapper = styled.div`
   row-gap: 1rem;
 `;
 
-export const Input: RPage = () => (
+const Input: RPage = () => (
   <Wrapper>
     <h1>Input</h1>
     <InputList styling="white" title="White" />
     <InputList styling="dark" title="Dark" />
   </Wrapper>
 );
+
+export default Input;

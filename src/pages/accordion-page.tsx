@@ -2,7 +2,7 @@ import { Accordion } from 'components/accordion';
 
 import { RPage } from 'types/react';
 
-export const AccordionPage: RPage = () => {
+const AccordionPage: RPage = () => {
   return (
     <>
       <Accordion>
@@ -20,3 +20,5 @@ export const AccordionPage: RPage = () => {
     </>
   );
 };
+
+export default AccordionPage;

@@ -5,7 +5,7 @@ import { useShowState } from 'hooks/show-state';
 import { RPage } from 'types/react';
 import { ConfirmModal } from './components';
 
-export const ModalPage: RPage = () => {
+const ModalPage: RPage = () => {
   const { isShow, onShow, onClose } = useShowState(false);
 
   return (
@@ -17,3 +17,5 @@ export const ModalPage: RPage = () => {
     </>
   );
 };
+
+export default ModalPage;

@@ -23,7 +23,7 @@ const ItemList = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(${ITEM_WIDTH}, 1fr));
 `;
 
-export const Home: RPage = () => (
+const Home: RPage = () => (
   <Wrapper>
     <ItemList>
       {HOME_MENU.map((item) => (
@@ -32,3 +32,5 @@ export const Home: RPage = () => (
     </ItemList>
   </Wrapper>
 );
+
+export default Home;

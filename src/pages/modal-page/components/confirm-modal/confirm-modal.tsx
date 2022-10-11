@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Button } from 'components/button';
 import { Picture } from 'components/picture';
 
-import { useNotificationApi } from 'pages/notification-list/notification-list.context';
+import { useNotificationApi } from 'components/notification-list/notification-list.context';
 
 import { RElement } from 'types/react';
 

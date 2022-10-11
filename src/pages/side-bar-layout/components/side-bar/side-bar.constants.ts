@@ -6,7 +6,7 @@ export const SIDEBAR_LINKS: SidebarLinkProps[] = [
   { icon: 'sideBarTabs', to: ROUTES.TABS, text: 'Tabs' },
   { icon: 'sideBarTabs', to: ROUTES.BUTTON, text: 'Button' },
   { icon: 'sideBarSelector', to: ROUTES.SELECTOR, text: 'Selector' },
-  { icon: 'sideBarRadioGroup', to: ROUTES.RADIO_GROUP, text: 'Radio group' },
+  { icon: 'sideBarRadioGroup', to: ROUTES.CHECKBOX, text: 'Radio group' },
   {
     icon: 'sideBarNotification',
     to: ROUTES.NOTIFICATION,

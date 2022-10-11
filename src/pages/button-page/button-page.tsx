@@ -8,7 +8,7 @@ import { ButtonThemeTest } from './components';
 
 const click = () => console.log('Click!');
 
-export const ButtonPage: RPage = () => (
+const ButtonPage: RPage = () => (
   <div>
     <ButtonThemeTest />
     <Theme.Paragraph>Customized button</Theme.Paragraph>
@@ -18,3 +18,5 @@ export const ButtonPage: RPage = () => (
     </Button>
   </div>
 );
+
+export default ButtonPage;

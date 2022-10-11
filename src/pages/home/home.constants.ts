@@ -8,7 +8,7 @@ export const HOME_MENU: HomeItemProps[] = [
   { icon: 'homeSelector', route: ROUTES.SELECTOR, title: 'Selector' },
   {
     icon: 'homeRadioGroup',
-    route: ROUTES.RADIO_GROUP,
+    route: ROUTES.CHECKBOX,
     title: 'Radio group',
   },
   {

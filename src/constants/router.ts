@@ -3,7 +3,7 @@ export const ROUTES = {
   SELECTOR: '/selector',
   INPUT: '/input',
   BUTTON: '/button',
-  RADIO_GROUP: '/radio-group',
+  CHECKBOX: '/checkbox',
   NOTIFICATION: '/notification',
   MODAL: '/modal',
   ACCORDION: '/accordion',

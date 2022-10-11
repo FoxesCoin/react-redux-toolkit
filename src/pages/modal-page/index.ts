@@ -1,1 +1,1 @@
-export * from './modal-page';
+export { default } from './modal-page';
