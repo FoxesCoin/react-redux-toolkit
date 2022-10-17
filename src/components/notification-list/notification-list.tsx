@@ -14,7 +14,7 @@ const List = styled.div`
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 
-  z-index: ${Z_INDEX.NOTIFICATION};
+  z-index: ${Z_INDEX.notification};
 `;
 
 export const NotificationList = () => {

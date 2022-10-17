@@ -17,7 +17,7 @@ interface Props {
 
 const Wrapper = styled(Theme.FlexCenter)`
   ${cssFullSizeAbsolute}
-  z-index: ${Z_INDEX.OVERLAY_LOADER};
+  z-index: ${Z_INDEX.overlayLoader};
   background-color: ${COLORS.onyxOpacity};
 `;
 

@@ -10,7 +10,7 @@ const Menu = styled.ul<{ isOpen: boolean }>`
   position: absolute;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
 
-  z-index: ${Z_INDEX.SELECTOR};
+  z-index: ${Z_INDEX.selector};
   width: 100%;
   margin-top: 0.5rem;
 `;

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { OverlayModal } from 'components/overlay-modal';
+import { Modal } from 'components/modal';
 
 import { COLORS } from 'styles/color';
 
 import { Theme } from 'styles/theme';
 
 export const ConfirmModalStyled = {
-  Wrapper: styled(OverlayModal)`
+  Wrapper: styled(Modal)`
     color: ${COLORS.black};
 
     display: grid;

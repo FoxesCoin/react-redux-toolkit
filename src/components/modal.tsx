@@ -1,23 +1,22 @@
+import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
 import { COLORS } from 'styles/color';
-import { Z_INDEX } from 'styles/z-index';
 
 import { cssFlexCenter, cssFullScreenFixed } from 'styles/theme';
+import { ReactWrapper } from 'types/react';
 
-import { RWrapper } from 'types/react';
-
-interface Props {
+interface Props extends ReactWrapper {
   isShow: boolean;
 }
 
-const Wrapper = styled.div<Props>`
+const modalRoot = document.getElementById('modal') as HTMLElement;
+
+const Wrapper = styled.div`
   ${cssFullScreenFixed}
   ${cssFlexCenter}
   transition: 0.5s all;
   overflow: hidden;
-  transform: translateX(${(props) => (props.isShow ? '0' : '100%')});
-  z-index: ${Z_INDEX.OVERLAY_MODAL};
   background-color: ${COLORS.onyxOpacity};
 `;
 
@@ -25,16 +24,19 @@ const Content = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
   background-color: ${COLORS.white};
-  width: 100%;
-  height: 100%;
 `;
 
-export const OverlayModal: RWrapper<Props> = (props) => {
+export const Modal = (props: Props) => {
   const { className, children, isShow } = props;
 
-  return (
-    <Wrapper isShow={isShow}>
+  if (!isShow) {
+    return null;
+  }
+
+  return createPortal(
+    <Wrapper>
       <Content className={className}>{children}</Content>
-    </Wrapper>
+    </Wrapper>,
+    modalRoot
   );
 };
