@@ -3,30 +3,25 @@ import { useCallback, useState } from 'react';
 export function useShowState(initState = false) {
   const [isShow, setShow] = useState(initState);
 
-  const onShow = useCallback(() => {
+  const show = useCallback(() => {
     setShow(true);
   }, []);
 
-  const onClose = useCallback(() => {
+  const hide = useCallback(() => {
     setShow(false);
   }, []);
 
-  const onToggle = useCallback(() => {
+  const toggle = useCallback(() => {
     setShow((current) => !current);
   }, []);
 
-  return {
-    isShow,
-    onShow,
-    onClose,
-    onToggle,
-  };
+  return { isShow, show, hide, toggle };
 }
 
 export function useToggleState(initState = false) {
   const [isShow, setShow] = useState(initState);
 
-  const onToggle = useCallback(() => setShow((current) => !current), []);
+  const toggle = useCallback(() => setShow((current) => !current), []);
 
-  return [isShow, onToggle] as const;
+  return [isShow, toggle] as const;
 }

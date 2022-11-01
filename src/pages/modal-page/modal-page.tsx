@@ -6,14 +6,14 @@ import { RPage } from 'types/react';
 import { ConfirmModal } from './components';
 
 const ModalPage: RPage = () => {
-  const { isShow, onShow, onClose } = useShowState(false);
+  const { isShow, show, hide } = useShowState(false);
 
   return (
     <>
-      <Button styling="white" onClick={onShow}>
+      <Button styling="white" onClick={show}>
         Open modal
       </Button>
-      <ConfirmModal isShow={isShow} onClose={onClose} />
+      <ConfirmModal isShow={isShow} onClose={hide} />
     </>
   );
 };
