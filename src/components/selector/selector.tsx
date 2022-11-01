@@ -1,19 +1,29 @@
 import { SelectorHeader, SelectorItem, SelectorMenu } from './components';
-import { SelectorParams, SelectorContext } from './selector.context';
+import { SelectorContext, SelectorParams } from './selector.context';
 
 import { ReactWrapper } from 'types/react';
 
 interface Props extends ReactWrapper, SelectorParams {}
 
 export const Selector = (props: Props) => {
-  const { className, children, value, isDisabled, setValue } = props;
+  const {
+    className,
+    children,
+    value,
+    isDisabled,
+    styling,
+    setValue,
+    checkEqual,
+  } = props;
 
   return (
     <SelectorContext
       className={className}
       value={value}
+      styling={styling}
       isDisabled={isDisabled}
       setValue={setValue}
+      checkEqual={checkEqual}
     >
       {children}
     </SelectorContext>

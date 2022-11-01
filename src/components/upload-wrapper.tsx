@@ -1,6 +1,7 @@
+import { ChangeEvent } from 'react';
 import styled from 'styled-components';
 
-import { handleFileChange } from 'services/utils';
+import { useEvent } from 'hooks/event';
 
 import { RWrapper } from 'types/react';
 
@@ -26,13 +27,18 @@ export const ACCEPT = {
 export const UploadWrapper: RWrapper<Props> = (props) => {
   const { className, setFile, type, children } = props;
 
+  const handleChange = useEvent((event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    if (!files) {
+      return;
+    }
+
+    setFile(files[0]);
+  });
+
   return (
     <label className={className}>
-      <Input
-        type="file"
-        accept={ACCEPT[type]}
-        onChange={handleFileChange(setFile)}
-      />
+      <Input type="file" accept={ACCEPT[type]} onChange={handleChange} />
       {children}
     </label>
   );

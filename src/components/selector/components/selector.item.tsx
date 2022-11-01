@@ -1,13 +1,10 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { useSelectorContext } from '../selector.context';
-
-import { COLORS } from 'styles/color';
+import { useClickEvent } from 'hooks/event';
+import { useSelectorApi } from '../selector.context';
 
 import { RContainer } from 'types/react';
-
-import { Theme } from 'styles/theme';
 
 interface Props {
   value: any;
@@ -17,30 +14,36 @@ interface Props {
   children?: ReactNode | ((isSelected: boolean) => ReactNode);
 }
 
-const Item = styled(Theme.FlexCenter)`
-  color: ${COLORS.spanishGray};
+const Wrapper = styled.li`
+  width: 100%;
+  display: block;
+  cursor: pointer;
 `;
 
 export const SelectorItem: RContainer<Props> = (props) => {
   const { value, className, children } = props;
-  const { setValue, setOpen, value: selectValue } = useSelectorContext();
+  const { setValue, setOpen, checkEqual } = useSelectorApi();
 
-  const handleClick = () => {
+  const isEqual = checkEqual(value);
+  const componentClass = `${className ?? ''} selector__item ${
+    isEqual ? 'selector__item_active' : ''
+  }`.trim();
+
+  const handleClick = useClickEvent(() => {
     setOpen(false);
     setValue(value);
-  };
+  });
 
   const render = (): ReactNode => {
     if (!children) {
       return value;
     }
-    const isSelected = selectValue === value;
-    return typeof children === 'function' ? children(isSelected) : children;
+    return typeof children === 'function' ? children(isEqual) : children;
   };
 
   return (
-    <Item className={className} onClick={handleClick}>
+    <Wrapper className={componentClass} onClick={handleClick}>
       {render()}
-    </Item>
+    </Wrapper>
   );
 };

@@ -1,8 +1,8 @@
-import { ChangeEventHandler } from 'react';
-
-import { SwitchStyled as Styled } from './switch.styled';
+import { useChangeEvent } from 'hooks/event';
 
 import { RContainer } from 'types/react';
+
+import { SwitchStyled as Styled } from './switch.styled';
 
 interface Props {
   isChecked: boolean;
@@ -16,17 +16,15 @@ interface Props {
 export const Switch: RContainer<Props> = (props) => {
   const { className, isChecked, isDisabled, value, children, onCheck } = props;
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    onCheck(event.target.value);
-  };
+  const handleChange = useChangeEvent(onCheck);
 
   return (
     <Styled.Wrapper
-      className={className}
+      className={`${className} switch`}
       isChecked={isChecked}
       isDisabled={isDisabled}
     >
-      <Styled.Radio
+      <Styled.Switch
         type="checkbox"
         value={value}
         checked={isChecked}
@@ -34,7 +32,7 @@ export const Switch: RContainer<Props> = (props) => {
         onChange={handleChange}
       />
       <Styled.Item
-        className="switch"
+        className="switch__item"
         isDisabled={isDisabled}
         isChecked={isChecked}
       />

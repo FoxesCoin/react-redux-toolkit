@@ -7,7 +7,7 @@ import { Z_INDEX } from 'styles/z-index';
 
 import { RElement } from 'types/react';
 
-import { Theme } from 'styles/theme';
+import { cssFullSizeAbsolute, Theme } from 'styles/theme';
 
 interface Props {
   isLoading: boolean;
@@ -16,13 +16,9 @@ interface Props {
 }
 
 const Wrapper = styled(Theme.FlexCenter)`
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  position: absolute;
-  z-index: ${Z_INDEX.OVERLAY_LOADER};
-  background-color: ${COLORS.opacityOnyx};
+  ${cssFullSizeAbsolute}
+  z-index: ${Z_INDEX.overlayLoader};
+  background-color: ${COLORS.onyxOpacity};
 `;
 
 export const OverlayLoader: RElement<Props> = (props) => {

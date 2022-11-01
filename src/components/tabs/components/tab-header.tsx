@@ -1,9 +1,8 @@
-import { FC, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { useTabContext } from '../tab.context';
-
-import { handleClickEvent } from 'services/utils';
+import { useClickEvent } from 'hooks/event';
+import { useTabApi, useTabState } from '../tab.context';
 
 interface Props {
   value: string;
@@ -17,17 +16,19 @@ interface WrapperParams {
   isActive: boolean;
 }
 
-const Wrapper = styled.button<WrapperParams>`
+const Wrapper = styled.div<WrapperParams>`
   transition: 0.15s all;
+  cursor: pointer;
 `;
 
-export const TabHeader: FC<Props> = (props) => {
+export const TabHeader: FC<Props> = memo((props) => {
   const { className, value, children } = props;
-  const { item, setItem } = useTabContext();
+  const activeValue = useTabState();
+  const setItem = useTabApi();
 
-  const isActive = item === value;
+  const isActive = activeValue === value;
 
-  const handleClick = handleClickEvent(() => {
+  const handleClick = useClickEvent(() => {
     setItem(value);
   });
 
@@ -40,11 +41,12 @@ export const TabHeader: FC<Props> = (props) => {
 
   return (
     <Wrapper
-      className={`${className} ${isActive ? 'active' : ''}`}
+      className={`${isActive ? 'tab_active' : ''} ${className}`}
       isActive={isActive}
       onClick={handleClick}
     >
       {render()}
     </Wrapper>
   );
-};
+});
+TabHeader.displayName = 'TabHeader';

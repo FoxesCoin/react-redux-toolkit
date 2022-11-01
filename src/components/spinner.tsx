@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { COLORS, Color } from 'styles/color';
+import { Color, COLORS } from 'styles/color';
 import { cssRound } from 'styles/theme';
 
 import { RElement } from 'types/react';

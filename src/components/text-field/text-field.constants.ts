@@ -13,7 +13,7 @@ const WHITE = css`
     border-color: ${COLORS.spanishGray};
   }
 
-  &.error {
+  &.field__error {
     border-color: ${COLORS.lightCoral};
   }
 `;
@@ -25,11 +25,11 @@ const DARK = css`
 
   &:disabled {
     color: ${COLORS.spanishGray};
-    background-color: ${COLORS.opacityOnyx};
+    background-color: ${COLORS.onyxOpacity};
     border-color: ${COLORS.spanishGray};
   }
 
-  &.error {
+  &.field__error {
     border-color: ${COLORS.lightCoral};
   }
 `;

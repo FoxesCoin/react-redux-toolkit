@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import {
   cssFlexCenter,
   cssFullSize,
-  cssGap,
+  cssHorizontalGap,
   cssText,
+  cssVerticalGap,
+  GapStyling,
   Typography,
 } from './theme.preset';
 
@@ -19,22 +21,11 @@ export const Theme = {
     ${showCursor}
     ${cssText}
   `,
-  UpperText: styled.span<Typography>`
-    ${showCursor}
-    ${cssText}
-    text-transform: uppercase;
-  `,
   Title: styled.p<Typography>`
     ${showCursor}
     ${cssText}
     text-align: center;
     width: 100%;
-  `,
-  FullScreenCenter: styled.div`
-    ${showCursor}
-    ${cssFlexCenter}
-    ${cssFullSize}
-    flex-direction: column;
   `,
   FlexLine: styled.div`
     ${showCursor}
@@ -48,15 +39,15 @@ export const Theme = {
     justify-content: space-between;
     flex-direction: column;
   `,
-  GapRow: styled.div`
+  GapRow: styled.div<GapStyling>`
     ${showCursor}
-    ${cssGap}
+    ${(props) => cssHorizontalGap(props?.gap)}
     display: flex;
     align-items: center;
   `,
-  GapColumn: styled.div`
+  GapColumn: styled.div<GapStyling>`
     ${showCursor}
-    ${cssGap}
+    ${(props) => cssVerticalGap(props?.gap)}
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -74,22 +65,10 @@ export const Theme = {
     ${showCursor}
     ${cssFullSize}
   `,
-  GridColumn: styled.div<{ gap?: number }>`
+  FullScreenCenter: styled.div`
     ${showCursor}
-    display: grid;
-    gap: ${(props) => props.gap ?? 8}px;
-    grid-auto-rows: max-content;
-    justify-items: center;
-    align-items: center;
-  `,
-  ToggleContent: styled.div`
-    ${showCursor}
-    overflow: hidden;
-    transition: all 0.5s;
-  `,
-  AllSpace: styled.div`
-    ${showCursor}
-    width: 100%;
-    height: 100%;
+    ${cssFlexCenter}
+    ${cssFullSize}
+    flex-direction: column;
   `,
 };

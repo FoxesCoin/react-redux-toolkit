@@ -1,13 +1,15 @@
+import { ReactNode } from 'react';
+
 import { AccordionContext } from './accordion.context';
 import { AccordionContent, AccordionHeader } from './components';
 
-import { ReactWrapper } from 'types/react';
+interface Props {
+  children: ReactNode;
+}
 
-export const Accordion = (props: ReactWrapper) => {
-  const { className, children } = props;
-
-  return <AccordionContext className={className}>{children}</AccordionContext>;
-};
+export const Accordion = ({ children }: Props) => (
+  <AccordionContext>{children}</AccordionContext>
+);
 
 Accordion.Header = AccordionHeader;
 Accordion.Content = AccordionContent;

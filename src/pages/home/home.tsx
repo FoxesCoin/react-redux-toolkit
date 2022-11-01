@@ -1,24 +1,36 @@
-import { Outlet } from 'react-router';
+import styled from 'styled-components';
 
-import { ROUTES } from 'constants/router';
+import { HomeItem } from './home-item';
 
-import { SidebarLink } from './components';
+import { HOME_MENU } from './home.constants';
 
 import { RPage } from 'types/react';
 
-import { HomeStyles as Styled } from './home.styles';
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-export const Home: RPage = () => (
-  <Styled.Wrapper>
-    <Styled.Sidebar>
-      <SidebarLink to={ROUTES.BUTTON}>Button</SidebarLink>
-      <SidebarLink to={ROUTES.INPUT}>Input</SidebarLink>
-      <SidebarLink to={ROUTES.SELECTOR}>Selector</SidebarLink>
-      <SidebarLink to={ROUTES.CHECKBOX}>Checkbox</SidebarLink>
-      <SidebarLink to={ROUTES.ACCORDION}>Accordion</SidebarLink>
-    </Styled.Sidebar>
-    <Styled.Main>
-      <Outlet />
-    </Styled.Main>
-  </Styled.Wrapper>
+const ITEM_WIDTH = '300px';
+const COLUMN_GAP = '20px';
+
+const ItemList = styled.div`
+  max-width: calc(${ITEM_WIDTH} * 4 + ${COLUMN_GAP} * 3);
+  display: grid;
+  column-gap: ${COLUMN_GAP};
+  row-gap: 4rem;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(${ITEM_WIDTH}, 1fr));
+`;
+
+const Home: RPage = () => (
+  <Wrapper>
+    <ItemList>
+      {HOME_MENU.map((item) => (
+        <HomeItem key={item.route} {...item} />
+      ))}
+    </ItemList>
+  </Wrapper>
 );
+
+export default Home;

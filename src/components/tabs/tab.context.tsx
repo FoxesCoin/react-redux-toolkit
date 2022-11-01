@@ -1,35 +1,35 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
+
+import { useContextHandler } from 'hooks/context';
+import { generateContext } from 'services/react';
 
 import { RWrapper } from 'types/react';
 
 import { Theme } from 'styles/theme';
 
-interface ContextParams<T = any> {
-  item: T;
-
-  setItem: SetState<T>;
+export interface TabProviderProps {
+  defaultValue: any;
 }
 
-const INIT_VALUE: ContextParams = {
-  item: '',
-  setItem: () => {
-    return;
-  },
-};
+const State = generateContext<string>('TabStateContext');
+const Api = generateContext<SetState<string>>('TabApiContext');
 
-const Context = createContext(INIT_VALUE);
-export const useTabContext = () => useContext(Context);
+export const useTabState = () => useContextHandler(State, 'TabState');
+export const useTabApi = () => useContextHandler(Api, 'TabApi');
 
-export const TabProvider: RWrapper = (props) => {
-  const { className, children } = props;
+export const TabProvider: RWrapper<TabProviderProps> = (props) => {
+  const { className, children, defaultValue } = props;
 
-  const [item, setItem] = useState<any>('');
+  const [item, setItem] = useState<any>(defaultValue);
 
-  const provider = useMemo(() => ({ item, setItem }), [item]);
+  const state = useMemo(() => item, [item]);
+  const api = useMemo(() => setItem, []);
 
   return (
-    <Context.Provider value={provider}>
-      <Theme.AllSpace className={className}>{children}</Theme.AllSpace>
-    </Context.Provider>
+    <Api.Provider value={api}>
+      <State.Provider value={state}>
+        <Theme.FullScreen className={className}>{children}</Theme.FullScreen>
+      </State.Provider>
+    </Api.Provider>
   );
 };

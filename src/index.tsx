@@ -1,7 +1,13 @@
+import 'services/why-did-you-rerender';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { App } from './pages/app';
+import { NotificationList } from 'components/notification-list';
+import { NotificationContext } from 'components/notification-list/notification-list.context';
+import { App } from 'pages/app';
+
+import { IS_PRODUCT } from 'constants/config';
 
 import { GlobalStyles } from 'styles/global';
 import 'styles/reset.css';
@@ -17,7 +23,7 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 const Root: RWrapper = ({ children }) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (IS_PRODUCT) {
     return <>{children}</>;
   }
 
@@ -26,7 +32,10 @@ const Root: RWrapper = ({ children }) => {
 
 root.render(
   <Root>
-    <GlobalStyles />
-    <App />
+    <NotificationContext>
+      <GlobalStyles />
+      <App />
+      <NotificationList />
+    </NotificationContext>
   </Root>
 );

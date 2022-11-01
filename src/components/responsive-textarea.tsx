@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
 
-import { TextAreaProps, TextArea } from './text-area';
+import { TextArea, TextAreaProps } from './text-area';
 
 import { RElement } from 'types/react';
 

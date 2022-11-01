@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { Switch } from 'components/switch';
 import { Radio } from 'components/radio';
+import { Switch } from 'components/switch';
 
-import { toggleItemSimpleArray } from 'services/utils';
+import { toggleItemSimpleArray } from 'services/array';
 
 import { RPage } from 'types/react';
 
@@ -11,7 +11,7 @@ import { CheckboxPageStyles as Styled } from './checkbox-page.styles';
 
 const CHECKBOX_LIST = ['1', '2', '3'].map((data, key) => ({ data, key }));
 
-export const CheckboxPage: RPage = () => {
+const CheckboxPage: RPage = () => {
   const [checkbox, setCheckbox] = useState<string[]>([]);
   const [radio, setRadio] = useState<string>(CHECKBOX_LIST[0].data);
 
@@ -80,3 +80,5 @@ export const CheckboxPage: RPage = () => {
     </Styled.Wrapper>
   );
 };
+
+export default CheckboxPage;

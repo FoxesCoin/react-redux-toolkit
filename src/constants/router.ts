@@ -4,5 +4,8 @@ export const ROUTES = {
   INPUT: '/input',
   BUTTON: '/button',
   CHECKBOX: '/checkbox',
+  NOTIFICATION: '/notification',
+  MODAL: '/modal',
   ACCORDION: '/accordion',
+  TABS: '/tabs',
 };

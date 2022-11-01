@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { handleClickEvent } from 'services/utils';
+import { useClickEvent } from 'hooks/event';
 
-import { BUTTON_THEME, ButtonTheme } from './button.constants';
 import { COLORS } from 'styles/color';
+import { ButtonTheme, BUTTON_THEME } from './button.constants';
 
 import { RWrapper } from 'types/react';
 
@@ -17,6 +17,10 @@ interface Props {
 const Wrapper = styled.button<{ styling?: ButtonTheme }>`
   line-height: 1.5;
   transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: max-content;
 
   &:disabled {
     background-color: ${COLORS.dimGray};
@@ -28,12 +32,14 @@ const Wrapper = styled.button<{ styling?: ButtonTheme }>`
 export const Button: RWrapper<Props> = (props) => {
   const { children, className, isDisabled, styling, onClick } = props;
 
+  const handleClick = useClickEvent(onClick);
+
   return (
     <Wrapper
       styling={styling}
       className={className}
       disabled={isDisabled}
-      onClick={handleClickEvent(onClick)}
+      onClick={handleClick}
     >
       {children}
     </Wrapper>

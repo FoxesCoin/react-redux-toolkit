@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { handleChangeEvent } from 'services/utils';
+import { useChangeEvent } from 'hooks/event';
 
 import { COLORS } from 'styles/color';
-import { TEXT_FIELD_THEME, TextFieldTheme } from './text-field.constants';
+import { TextFieldTheme, TEXT_FIELD_THEME } from './text-field.constants';
 
 import { RContainer } from 'types/react';
 
@@ -46,16 +46,18 @@ export const TextField: RContainer<Props> = (props) => {
     onChange,
   } = props;
 
+  const handleChange = useChangeEvent(onChange);
+
   return (
     <Field
       type="text"
       contentEditable={false}
       value={value}
       disabled={isDisabled}
-      className={`${className} ${isError ? 'error' : ''}`}
+      className={`${className} ${isError ? 'field__error' : ''}`}
       placeholder={placeholder}
       styling={styling}
-      onChange={handleChangeEvent(onChange)}
+      onChange={handleChange}
     >
       {children}
     </Field>
