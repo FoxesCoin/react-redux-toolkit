@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import {
   cssFlexCenter,
   cssFullSize,
-  cssGap,
+  cssHorizontalGap,
   cssText,
+  cssVerticalGap,
+  GapStyling,
   Typography,
 } from './theme.preset';
 
@@ -37,15 +39,15 @@ export const Theme = {
     justify-content: space-between;
     flex-direction: column;
   `,
-  GapRow: styled.div`
+  GapRow: styled.div<GapStyling>`
     ${showCursor}
-    ${cssGap}
+    ${(props) => cssHorizontalGap(props?.gap)}
     display: flex;
     align-items: center;
   `,
-  GapColumn: styled.div`
+  GapColumn: styled.div<GapStyling>`
     ${showCursor}
-    ${cssGap}
+    ${(props) => cssVerticalGap(props?.gap)}
     display: flex;
     justify-content: center;
     flex-direction: column;
