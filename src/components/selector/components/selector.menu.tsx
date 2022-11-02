@@ -4,7 +4,7 @@ import { useSelectorState } from '../selector.context';
 
 import { Z_INDEX } from 'styles/z-index';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 const Menu = styled.ul<{ isOpen: boolean }>`
   position: absolute;

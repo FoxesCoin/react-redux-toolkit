@@ -7,7 +7,7 @@ import {
   TEXT_FIELD_THEME,
 } from './text-field/text-field.constants';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 export interface TextAreaProps {
   value: string | undefined;

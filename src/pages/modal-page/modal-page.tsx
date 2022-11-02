@@ -2,7 +2,7 @@ import { Button } from 'components/button';
 
 import { useShowState } from 'hooks/show-state';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 import { ConfirmModal } from './components';
 
 const ModalPage: RPage = () => {

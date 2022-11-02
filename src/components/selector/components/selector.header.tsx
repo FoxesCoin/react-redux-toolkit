@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useClickEvent } from 'hooks/event';
 import { useSelectorApi, useSelectorState } from '../selector.context';
 
-import { RContainer } from 'types/react';
+import { RContainer } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

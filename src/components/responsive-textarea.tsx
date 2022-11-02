@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { TextArea, TextAreaProps } from './text-area';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 interface Props extends TextAreaProps {
   value: string;

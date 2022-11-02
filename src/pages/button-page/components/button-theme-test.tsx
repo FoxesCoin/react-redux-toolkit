@@ -1,16 +1,17 @@
 import { useCallback, useState } from 'react';
 
 import { Button } from 'components/button';
-import { ButtonTheme } from 'components/button/button.constants';
+import { ButtonTheme, BUTTON_THEME } from 'components/button/button.constants';
 import { Selector } from 'components/selector';
 
+import { getObjectKeys } from 'services/object';
 import { toSentenceCase } from 'services/string';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 
-const BUTTON_THEME: ButtonTheme[] = ['black', 'white'];
+const THEME = getObjectKeys(BUTTON_THEME);
 const click = () => console.log('Click!');
 
 export const ButtonThemeTest: RPage = () => {
@@ -27,7 +28,7 @@ export const ButtonThemeTest: RPage = () => {
       >
         <Selector.Header>{toSentenceCase(theme)}</Selector.Header>
         <Selector.Menu>
-          {BUTTON_THEME.map((item) => (
+          {THEME.map((item) => (
             <Selector.Item value={item} key={item}>
               {toSentenceCase(item)}
             </Selector.Item>

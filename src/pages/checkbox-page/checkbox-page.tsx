@@ -5,7 +5,7 @@ import { Switch } from 'components/switch';
 
 import { toggleItemSimpleArray } from 'services/array';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { CheckboxPageStyles as Styled } from './checkbox-page.styles';
 

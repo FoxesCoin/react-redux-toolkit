@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { useEvent } from 'hooks/event';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 export type FileType = keyof typeof ACCEPT;
 

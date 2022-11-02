@@ -7,7 +7,7 @@ import {
   useNotificationApi,
 } from './notification-list.context';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 export const AutoRemoveNotification: RElement<PopUpNotificationParams> = (
   props

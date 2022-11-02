@@ -12,7 +12,7 @@ import { IS_PRODUCT } from 'constants/config';
 import { GlobalStyles } from 'styles/global';
 import 'styles/reset.css';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 const rootElement = document.getElementById('root');
 

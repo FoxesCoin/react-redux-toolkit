@@ -1,6 +1,6 @@
 import { Tabs } from 'components/tabs';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

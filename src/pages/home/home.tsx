@@ -4,7 +4,7 @@ import { HomeItem } from './home-item';
 
 import { HOME_MENU } from './home.constants';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const Wrapper = styled.div`
   display: flex;

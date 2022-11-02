@@ -1,6 +1,6 @@
 import { useChangeEvent } from 'hooks/event';
 
-import { RContainer } from 'types/react';
+import { RContainer } from 'typings/react';
 
 import { SwitchStyled as Styled } from './switch.styled';
 
@@ -12,6 +12,8 @@ interface Props {
 
   isDisabled?: boolean;
 }
+
+// TODO simplify this component to only ui switch without input connection
 
 export const Switch: RContainer<Props> = (props) => {
   const { className, isChecked, isDisabled, value, children, onCheck } = props;

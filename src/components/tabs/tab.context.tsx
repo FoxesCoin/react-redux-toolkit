@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useContextHandler } from 'hooks/context';
 import { generateContext } from 'services/react';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

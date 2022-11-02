@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Color, COLORS } from 'styles/color';
 import { cssRound } from 'styles/theme';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 interface Props {
   size: number;
@@ -16,7 +16,7 @@ interface Styled {
   size: number;
   color: Color;
 
-  lineHeight?: number;
+  lineHeight: number;
 }
 
 const Wrapper = styled.div<Styled>(
@@ -32,15 +32,15 @@ const Wrapper = styled.div<Styled>(
 
     animation: spine 1s infinite linear;
 
-    ${cssRound(size)}
+    ${cssRound(`${size}px`)}
 
-    border: ${lineHeight ?? size * 0.2}px solid ${COLORS[color]};
+    border: ${lineHeight}px solid ${COLORS[color]};
     border-top-color: ${COLORS[color]};
   `
 );
 
 export const Spinner: RElement<Props> = (props) => {
-  const { size, className, color = 'black', lineHeight } = props;
+  const { size, className, color = 'black', lineHeight = size * 0.2 } = props;
 
   return (
     <Wrapper

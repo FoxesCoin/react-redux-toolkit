@@ -1,6 +1,6 @@
 import { Notification } from 'components/notification';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const NotificationPage: RPage = () => (
   <>

@@ -1,6 +1,6 @@
 import { useChangeEvent } from 'hooks/event';
 
-import { RContainer } from 'types/react';
+import { RContainer } from 'typings/react';
 
 import { RadioStyles as Styled } from './radio.styles';
 

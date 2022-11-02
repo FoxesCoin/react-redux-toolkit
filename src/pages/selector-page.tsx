@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Selector } from 'components/selector';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const SELECTOR_ITEMS = ['Test_1', 'Test_2', 'Test_3'];
 

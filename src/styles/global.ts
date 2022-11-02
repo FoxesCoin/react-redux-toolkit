@@ -11,6 +11,10 @@ html {
   font-family: ${FONTS.regular};
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 body,
 html,
 #root {

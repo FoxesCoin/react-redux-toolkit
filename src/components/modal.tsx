@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { COLORS } from 'styles/color';
 
 import { cssFlexCenter, cssFullScreenFixed } from 'styles/theme';
-import { ReactWrapper } from 'types/react';
+import { ReactWrapper } from 'typings/react';
 
 interface Props extends ReactWrapper {
   isShow: boolean;

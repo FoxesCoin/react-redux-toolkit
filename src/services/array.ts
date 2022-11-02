@@ -47,17 +47,18 @@ export function updateObjectArray<T extends {}>(parameters: {
   search: Partial<T>;
 }): T[] {
   const { array, newValues, search } = parameters;
-  const index = array.findIndex((item) =>
-    getObjectEntries(search).every(([key, value]) => item[key] === value)
-  );
 
-  if (index === -1) {
+  const searchData = getObjectEntries(search);
+  const checkFields = (item: T) =>
+    searchData.every(([key, value]) => item[key] === value);
+
+  if (!array.some(checkFields)) {
     return array;
   }
-  const clone = deepCopy(array);
-  clone[index] = { ...clone[index], ...newValues };
 
-  return clone;
+  return deepCopy(array).map((item) =>
+    checkFields(item) ? { ...item, ...newValues } : item
+  );
 }
 
 export function removeItemInObjectArray<T extends {}>(

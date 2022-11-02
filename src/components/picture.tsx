@@ -1,4 +1,4 @@
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 const getIcon = (path: string) => require(`../assets/icons/${path}.svg`);
 

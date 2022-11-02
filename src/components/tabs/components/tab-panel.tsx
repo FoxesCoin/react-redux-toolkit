@@ -1,6 +1,6 @@
 import { useTabState } from '../tab.context';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

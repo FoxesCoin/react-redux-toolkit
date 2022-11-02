@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { TextField } from 'components/text-field';
 
 import { TextFieldTheme } from 'components/text-field/text-field.constants';
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 import { InputListStyled as Styled } from './input-list.styled';

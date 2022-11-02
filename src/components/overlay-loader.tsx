@@ -5,7 +5,7 @@ import { Spinner } from './spinner';
 import { COLORS } from 'styles/color';
 import { Z_INDEX } from 'styles/z-index';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 import { cssFullSizeAbsolute, Theme } from 'styles/theme';
 

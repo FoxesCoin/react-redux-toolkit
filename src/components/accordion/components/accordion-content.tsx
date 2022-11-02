@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useAutoHeightAnimation } from 'hooks/animate';
 import { useAccordionState } from '../accordion.context';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 const Wrapper = styled.div<{ height: number }>`
   overflow: hidden;

@@ -5,7 +5,7 @@ import { useChangeEvent } from 'hooks/event';
 import { COLORS } from 'styles/color';
 import { TextFieldTheme, TEXT_FIELD_THEME } from './text-field.constants';
 
-import { RContainer } from 'types/react';
+import { RContainer } from 'typings/react';
 
 interface Styled {
   styling?: TextFieldTheme;

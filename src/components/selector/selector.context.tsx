@@ -7,7 +7,7 @@ import { generateContext } from 'services/react';
 
 import { SelectorTheme, SELECTOR_THEME } from './selector.constants';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 interface SelectorApiParams {
   setValue: (value: any) => void;

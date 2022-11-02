@@ -5,7 +5,7 @@ import { Picture } from 'components/picture';
 
 import { useNotificationApi } from 'components/notification-list/notification-list.context';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 import { ConfirmModalStyled as Styled } from './confirm-modal.styled';

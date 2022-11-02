@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { InputList } from './components';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const Wrapper = styled.div`
   display: grid;

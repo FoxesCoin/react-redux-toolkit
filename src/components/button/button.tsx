@@ -5,7 +5,7 @@ import { useClickEvent } from 'hooks/event';
 import { COLORS } from 'styles/color';
 import { ButtonTheme, BUTTON_THEME } from './button.constants';
 
-import { RWrapper } from 'types/react';
+import { RWrapper } from 'typings/react';
 
 interface Props {
   onClick: () => void;

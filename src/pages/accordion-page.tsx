@@ -1,6 +1,6 @@
 import { Accordion } from 'components/accordion';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const AccordionPage: RPage = () => {
   return (

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useClickEvent } from 'hooks/event';
 import { useSelectorApi } from '../selector.context';
 
-import { RContainer } from 'types/react';
+import { RContainer } from 'typings/react';
 
 interface Props {
   value: any;

@@ -6,7 +6,7 @@ import { Picture, PictureName } from 'components/picture';
 
 import { Theme } from 'styles/theme';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 export interface HomeItemProps {
   title: string;

@@ -65,14 +65,8 @@ test('updateItemInArray', () => {
   ).toEqual(SIMPLE_ARRAY);
 });
 
-test('updateObjectArray', () => {
-  expect(
-    updateObjectArray({
-      array: SIMPLE_OBJECT_ARRAY,
-      newValues: { label: 'test' },
-      search: { label: '1' },
-    })
-  ).toEqual([
+test('updateObjectArray with one exist search result', () => {
+  const EXPECTED = [
     {
       label: 'test',
       value: '1',
@@ -85,7 +79,18 @@ test('updateObjectArray', () => {
       label: '3',
       value: '3',
     },
-  ]);
+  ];
+
+  expect(
+    updateObjectArray({
+      array: SIMPLE_OBJECT_ARRAY,
+      newValues: { label: 'test' },
+      search: { label: '1' },
+    })
+  ).toEqual(EXPECTED);
+});
+
+test('updateObjectArray with not exist search result', () => {
   expect(
     updateObjectArray({
       array: SIMPLE_OBJECT_ARRAY,
@@ -93,20 +98,25 @@ test('updateObjectArray', () => {
       search: { label: 'Not exist value' },
     })
   ).toEqual(SIMPLE_OBJECT_ARRAY);
+});
+
+test('updateObjectArray with several with identical search parameter', () => {
+  const GAVE = [
+    { label: '1', value: '1' },
+    { label: '1', value: '2' },
+  ];
+  const EXPECTED = [
+    { label: '1', value: 'Test' },
+    { label: '1', value: 'Test' },
+  ];
 
   expect(
     updateObjectArray({
-      array: [
-        { label: '1', value: '1' },
-        { label: '1', value: '2' },
-      ],
+      array: GAVE,
       newValues: { value: 'Test' },
       search: { label: '1' },
     })
-  ).toEqual([
-    { label: '1', value: 'Test' },
-    { label: '1', value: '2' },
-  ]);
+  ).toEqual(expect.arrayContaining(EXPECTED));
 });
 
 test('removeItemInObjectArray', () => {

@@ -2,7 +2,7 @@ import { Outlet } from 'react-router';
 
 import { SideBar } from './components';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { SideBarLayoutStyles as Styled } from './side-bar-layout.styles';
 

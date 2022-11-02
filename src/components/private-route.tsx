@@ -3,7 +3,7 @@ import { Navigate, Route } from 'react-router';
 
 import { ROUTES } from 'constants/router';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 interface Props {
   path: string;

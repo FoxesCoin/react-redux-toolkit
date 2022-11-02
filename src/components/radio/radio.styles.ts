@@ -16,7 +16,7 @@ export const RadioStyles = {
     border: 1px solid ${COLORS.white};
   `,
   Dot: styled.div<{ isChecked: boolean }>`
-    ${cssRound(10)}
+    ${cssRound('10px')}
     transition: 0.25s all;
     background-color: ${(props) =>
       props.isChecked ? COLORS.white : COLORS.transparent};

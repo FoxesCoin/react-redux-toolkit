@@ -6,7 +6,7 @@ import { Picture, PictureName } from 'components/picture';
 
 import { COLORS } from 'styles/color';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

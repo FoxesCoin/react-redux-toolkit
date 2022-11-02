@@ -10,7 +10,7 @@ import {
   NOTIFICATION_PARAMETERS,
 } from './notification.constants';
 
-import { RElement } from 'types/react';
+import { RElement } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 

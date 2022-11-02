@@ -5,7 +5,7 @@ import { SideBarLayout } from './side-bar-layout';
 
 import { ROUTES } from 'constants/router';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 const Home = lazy(() => import('./home'));
 const Page404 = lazy(() => import('./page-404'));

@@ -1,7 +1,7 @@
 import { SelectorHeader, SelectorItem, SelectorMenu } from './components';
 import { SelectorContext, SelectorParams } from './selector.context';
 
-import { ReactWrapper } from 'types/react';
+import { ReactWrapper } from 'typings/react';
 
 interface Props extends ReactWrapper, SelectorParams {}
 

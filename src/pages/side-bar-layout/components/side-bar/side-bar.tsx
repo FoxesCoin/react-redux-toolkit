@@ -4,7 +4,7 @@ import { useToggleState } from 'hooks/show-state';
 
 import { SIDEBAR_LINKS } from './side-bar.constants';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 import { SideBarStyled as Styled } from './side-bar.styled';

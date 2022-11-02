@@ -1,7 +1,7 @@
 import { Button } from 'components/button';
 import { Picture } from 'components/picture';
 
-import { RPage } from 'types/react';
+import { RPage } from 'typings/react';
 
 import { Theme } from 'styles/theme';
 import { ButtonThemeTest } from './components';
