@@ -12,11 +12,14 @@ import { RPage } from 'typings/react';
 import { Theme } from 'styles/theme';
 
 const THEME = getObjectKeys(BUTTON_THEME);
-const click = () => console.log('Click!');
 
 export const ButtonThemeTest: RPage = () => {
   const [theme, setTheme] = useState<ButtonTheme>('white');
   const selectTheme = useCallback((item: string) => theme === item, [theme]);
+  const handleClick = () => {
+    return;
+  };
+
   return (
     <>
       <Theme.Text>Choose theme:</Theme.Text>
@@ -37,10 +40,10 @@ export const ButtonThemeTest: RPage = () => {
       </Selector>
       <fieldset>
         <legend>{toSentenceCase(theme)}</legend>
-        <Button styling={theme} onClick={click}>
+        <Button styling={theme} onClick={handleClick}>
           Simple button
         </Button>
-        <Button styling={theme} onClick={click} isDisabled>
+        <Button styling={theme} onClick={handleClick} isDisabled>
           Disabled button
         </Button>
       </fieldset>

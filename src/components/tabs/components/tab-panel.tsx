@@ -5,7 +5,7 @@ import { RWrapper } from 'typings/react';
 import { Theme } from 'styles/theme';
 
 interface Props {
-  value: any;
+  value: string;
 }
 
 export const TabPanel: RWrapper<Props> = (props) => {

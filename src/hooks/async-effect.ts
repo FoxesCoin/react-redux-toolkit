@@ -4,7 +4,7 @@ import { useRequest } from './request';
 
 export function useAsyncEffect(
   callback: () => Promise<void>,
-  dependency: any[] = []
+  dependency: unknown[] = []
 ) {
   const { isLoading, isError, sendRequest } = useRequest();
 

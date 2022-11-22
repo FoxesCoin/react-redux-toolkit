@@ -8,7 +8,7 @@ import { RWrapper } from 'typings/react';
 import { Theme } from 'styles/theme';
 
 export interface TabProviderProps {
-  defaultValue: any;
+  defaultValue: string;
 }
 
 const State = generateContext<string>('TabStateContext');
@@ -20,7 +20,7 @@ export const useTabApi = () => useContextHandler(Api, 'TabApi');
 export const TabProvider: RWrapper<TabProviderProps> = (props) => {
   const { className, children, defaultValue } = props;
 
-  const [item, setItem] = useState<any>(defaultValue);
+  const [item, setItem] = useState<string>(defaultValue);
 
   const state = useMemo(() => item, [item]);
   const api = useMemo(() => setItem, []);

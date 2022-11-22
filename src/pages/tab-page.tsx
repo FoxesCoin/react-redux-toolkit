@@ -8,7 +8,7 @@ const TAB_ITEMS = ['Test', 'Test_2', 'Test_3'];
 
 const TabPage: RPage = () => (
   <>
-    <Tabs defaultValue={TAB_ITEMS.at(0)}>
+    <Tabs defaultValue={TAB_ITEMS[0]}>
       <Theme.GapRow>
         {TAB_ITEMS.map((item) => (
           <Tabs.Header value={item} key={item}>

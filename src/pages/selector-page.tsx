@@ -7,7 +7,7 @@ import { RPage } from 'typings/react';
 const SELECTOR_ITEMS = ['Test_1', 'Test_2', 'Test_3'];
 
 const SelectorPage: RPage = () => {
-  const [item, setItem] = useState(SELECTOR_ITEMS.at(0));
+  const [item, setItem] = useState(SELECTOR_ITEMS[0]);
 
   return (
     <>
