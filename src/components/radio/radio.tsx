@@ -1,39 +1,34 @@
 import { useChangeEvent } from 'hooks/event';
 
-import { RContainer } from 'typings/react';
+import { RElement } from 'typings/react';
 
 import { RadioStyles as Styled } from './radio.styles';
 
 interface Props {
   isChecked: boolean;
-  value: any;
+  value: string;
 
-  onCheck: (value: any) => void;
+  onCheck: (value: string) => void;
 
   isDisabled?: boolean;
 }
 
-export const Radio: RContainer<Props> = (props) => {
-  const { isChecked, onCheck, value, children, className, isDisabled } = props;
+export const Radio: RElement<Props> = (props) => {
+  const { onCheck, isChecked, value, className, isDisabled } = props;
 
   const handleChange = useChangeEvent(onCheck);
 
   return (
-    <Styled.Wrapper
-      className={`radio ${isChecked ? 'radio_active' : ''} ${className}`}
-      isDisabled={isDisabled}
-    >
-      <Styled.Radio
+    <>
+      <input
+        hidden
         type="checkbox"
         value={value}
         checked={isChecked}
         disabled={isDisabled}
         onChange={handleChange}
       />
-      <Styled.Item className="radio__dot-wrapper">
-        <Styled.Dot className="radio__dot" isChecked={isChecked} />
-      </Styled.Item>
-      {children ?? value}
-    </Styled.Wrapper>
+      <Styled className={className} />
+    </>
   );
 };

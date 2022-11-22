@@ -30,10 +30,6 @@ const Field = styled.input<Styled>`
     color: ${COLORS.spanishGray};
   }
 
-  &:disabled {
-    cursor: no-drop;
-  }
-
   &.field__error {
     &,
     &::placeholder {
@@ -66,7 +62,7 @@ export const InputBase: RElement<InputBaseProps> = (props) => {
       value={value}
       pattern={pattern}
       disabled={isDisabled}
-      className={`${className} ${isError ? 'field__error' : ''}`}
+      className={`${className || ''} ${isError ? 'field__error' : ''}`.trim()}
       placeholder={placeholder}
       styling={styling}
       inputMode={inputMode}

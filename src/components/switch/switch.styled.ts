@@ -1,72 +1,55 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { COLORS } from 'styles/color';
-
-import { Theme } from 'styles/theme';
-
-interface Styled {
-  isChecked: boolean;
-
-  isDisabled?: boolean;
-}
+import { cssVerticalCentralize } from 'styles/theme';
 
 const CHECKBOX_WIDTH = 45;
 const DOT_SIZE = 18;
 const SIDE_PADDING = 4;
 const RIGHT_PADDING = CHECKBOX_WIDTH - DOT_SIZE - SIDE_PADDING;
 
-export const SwitchStyled = {
-  Wrapper: styled.label<Styled>(
-    ({ isChecked, isDisabled }) => css`
-      display: flex;
-      width: min-content;
-      align-items: center;
+export const SwitchStyled = styled.div`
+  position: relative;
+  display: inline-block;
 
-      &:hover .switch::before {
-        background-color: ${isChecked
-          ? COLORS.starCommandBlue
-          : COLORS.lightGray};
-      }
+  height: 22px;
+  width: 45px;
+  border-radius: 11px;
 
-      cursor: ${isDisabled ? 'default' : 'pointer'};
-    `
-  ),
-  Item: styled(Theme.FlexCenter)<Styled>(
-    ({ isChecked, isDisabled }) => css`
-      margin: 0.25rem;
-      position: relative;
+  transition: 0.3s all;
 
-      /* Background */
-      &::before {
-        content: '';
-        transition: 0.5s all;
-        width: ${CHECKBOX_WIDTH}px;
-        height: 22px;
-        border-radius: 11px;
-        display: inline-block;
-        background-color: ${isChecked
-          ? isDisabled
-            ? COLORS.charcoal
-            : COLORS.starCommandBlue
-          : COLORS.black};
-      }
+  background-color: ${COLORS.lightCoral};
 
-      /* Checkbox point */
-      &::after {
-        content: '';
-        position: absolute;
-        left: ${isChecked ? RIGHT_PADDING : SIDE_PADDING}px;
-        transition: 0.5s all;
-        width: ${DOT_SIZE}px;
-        height: ${DOT_SIZE}px;
-        border-radius: 50%;
-        background-color: ${isDisabled ? COLORS.lightGray : COLORS.white};
-        box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
-      }
-    `
-  ),
+  /* Checkbox point */
+  &::after {
+    content: '';
+    position: absolute;
+    left: ${SIDE_PADDING}px;
 
-  Switch: styled.input`
-    display: none;
-  `,
-};
+    transition: 0.5s all;
+    width: ${DOT_SIZE}px;
+    height: ${DOT_SIZE}px;
+    border-radius: 50%;
+    ${cssVerticalCentralize}
+    background-color: ${COLORS.white};
+    box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);
+  }
+
+  // When checkbox is checked
+  input:checked ~ & {
+    background-color: ${COLORS.lightGreen};
+
+    &::after {
+      left: ${RIGHT_PADDING}px;
+    }
+  }
+
+  // When checkbox is disabled
+  input:disabled ~ & {
+    background-color: ${COLORS.black};
+
+    &::after {
+      background-color: ${COLORS.lightGray};
+    }
+  }
+`;

@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react';
-import styled from 'styled-components';
 
 import { useEvent } from 'hooks/event';
 
@@ -12,10 +11,6 @@ interface Props {
 
   setFile: (file: File) => void;
 }
-
-const Input = styled.input`
-  display: none;
-`;
 
 export const ACCEPT = {
   image: 'image/*',
@@ -38,7 +33,7 @@ export const UploadWrapper: RWrapper<Props> = (props) => {
 
   return (
     <label className={className}>
-      <Input type="file" accept={ACCEPT[type]} onChange={handleChange} />
+      <input type="file" accept={ACCEPT[type]} onChange={handleChange} hidden />
       {children}
     </label>
   );
