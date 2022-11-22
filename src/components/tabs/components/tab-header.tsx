@@ -40,11 +40,7 @@ export const TabHeader: FC<Props> = memo((props) => {
   };
 
   return (
-    <Wrapper
-      className={`${isActive ? 'tab_active' : ''} ${className}`}
-      isActive={isActive}
-      onClick={handleClick}
-    >
+    <Wrapper className={className} isActive={isActive} onClick={handleClick}>
       {render()}
     </Wrapper>
   );
