@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
-import { TextField } from 'components/text-field';
+import { TextField } from 'components/text-input';
 
-import { TextFieldTheme } from 'components/text-field/text-field.constants';
 import { RElement } from 'typings/react';
 
+import { InputStyled } from 'components/input-base/input-base.constants';
 import { Theme } from 'styles/theme';
 import { InputListStyled as Styled } from './input-list.styled';
 
 interface Props {
   title: string;
-  styling: TextFieldTheme;
+  styling: InputStyled;
 }
 
 export const InputList: RElement<Props> = (props) => {

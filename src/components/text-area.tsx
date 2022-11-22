@@ -2,30 +2,30 @@ import styled from 'styled-components';
 
 import { useChangeEvent } from 'hooks/event';
 
-import {
-  TextFieldTheme,
-  TEXT_FIELD_THEME,
-} from './text-field/text-field.constants';
+import { InputStyled, INPUT_STYLED } from './input-base/input-base.constants';
 
 import { RElement } from 'typings/react';
 
-export interface TextAreaProps {
+interface Styled {
+  styling?: InputStyled;
+}
+
+export interface TextAreaProps extends Styled {
   value: string | undefined;
 
   onChange: (value: string) => void;
 
-  styling?: TextFieldTheme;
   placeholder?: string;
   isDisabled?: boolean;
 }
 
-const Wrapper = styled.textarea<{ styling?: TextFieldTheme }>`
+const Wrapper = styled.textarea<Styled>`
   resize: none;
   width: 100%;
   padding: 12px;
   border: 1px solid;
 
-  ${(props) => (props.styling ? TEXT_FIELD_THEME[props.styling] : '')}
+  ${(props) => (props.styling ? INPUT_STYLED[props.styling] : '')}
 `;
 
 export const TextArea: RElement<TextAreaProps> = (props) => {

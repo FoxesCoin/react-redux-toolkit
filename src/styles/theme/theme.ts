@@ -71,4 +71,8 @@ export const Theme = {
     ${cssFullSize}
     flex-direction: column;
   `,
+  Input: styled.input`
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+  `,
 };
